@@ -59,7 +59,7 @@ public class Rifle {
 		
 		System.out.println("AK47 정보\n"+AK.damage+"\n"+AK.rateOfFire+"\n"
 							+AK.hitRate+"\n"+AK.firearmRecoil+"\n"+AK.numberOfBullets
-							+"한때는 라이플의 로망이였으나, 현재는 좋은 라이플이 널리고 있어 꽤 고전하고 있다.\n"
+							+"\n한때는 라이플의 로망이였으나, 현재는 좋은 라이플이 널리고 있어 꽤 고전하고 있다.\n"
 							+ "거기다가 부위별 데미지 잠수함 너프도 받았다.\n"
 							+ "물론, 여전히 좋은총이지만 이동속도가 느리다는 단점 하나 때문에\n"
 							+ "스나에게 따일 확률은 물론 같은 라이플간의 근접전에서도\n"
@@ -81,7 +81,7 @@ public class Rifle {
 							"\n추가경험치:"+AK.expUp+"\n기능:"+AK.upGrade+","+
 							AK.swapSpeedUp+","+AK.reLoadSpeedUp);
 		
-		System.out.println("AK47 레벨:"+AK.Level40(0)+"\nkill:"+AK.myGunKill+
+		System.out.println("AK47 레벨:"+AK.Level50(0)+"\nkill:"+AK.myGunKill+
 							"\n추가경험치:"+AK.expUp+"\n기능:"+AK.upGrade+","+
 							AK.swapSpeedUp+","+AK.reLoadSpeedUp+","+AK.gunTransLucent);
 

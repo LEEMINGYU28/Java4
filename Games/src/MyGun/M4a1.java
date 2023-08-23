@@ -81,7 +81,7 @@ public class M4a1 {
 						"\n추가경험치:"+m4.expUp+"\n기능:"+m4.upGrade+","+
 						m4.swapSpeedUp+","+m4.reLoadSpeedUp);
 	
-	System.out.println("M4A1 레벨:"+m4.Level40(0)+"\nkill:"+m4.myGunKill+
+	System.out.println("M4A1 레벨:"+m4.Level50(0)+"\nkill:"+m4.myGunKill+
 						"\n추가경험치:"+m4.expUp+"\n기능:"+m4.upGrade+","+
 						m4.swapSpeedUp+","+m4.reLoadSpeedUp+","+m4.gunTransLucent);
 
