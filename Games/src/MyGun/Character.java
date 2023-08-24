@@ -109,6 +109,6 @@ public class Character {
 //		Scientist scientist = new Scientist();
 //		scientist.die=1;		
 	
-	
+
 	
 }
