@@ -2,7 +2,7 @@ package GuessingGame;
 
 public class Inventory {
 
-	String[] evidence;
+	String[] evidences;
 			
 	
 }
