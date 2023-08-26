@@ -2,14 +2,16 @@ package GuessingGame;
 
 public class Evidence {
 
-	String adgfd;
+	protected String[] name;
+	
+	protected String[] description;
 	
 	
+	// 피해자 핸드폰
+	// 피해자 핸드폰 비밀번호
+	// 피해자 방 열쇠
+	// 찢어진 옷 조각
+	// 피해자의 일기
 	
 	
-	private String ictimPhone;// 피해자 핸드폰
-	private String victimPhonePassword;// 피해자 핸드폰 비밀번호
-	private String victimRoomKey;// 피해자 방 열쇠
-	private String tornCothes; // 찢어진 옷 조각
-	private String vicitmDiary; // 피해자의 일기
 }
