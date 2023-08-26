@@ -2,7 +2,7 @@ package GuessingGame;
 
 public class Evidence {
 
-	
+	String adgfd;
 	
 	
 	
