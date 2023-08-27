@@ -2,7 +2,6 @@ package GuessingGame;
 
 public class Inventory {
 
-	String[] evidences;
-			
+	protected String[] evidences = new String[5];			
 	
 }
