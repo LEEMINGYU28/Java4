@@ -9,7 +9,7 @@ public class Room {
 		Scanner scanner = new Scanner(System.in);		
 	
 	protected String[] furniture = new String[] {"침대","액자","책상"};
-		protected int rooms() {
+		protected int rooms() { //방구조만들기
 
 		for (int i=0; i <3; i++) 
 		{
@@ -25,7 +25,7 @@ public class Room {
 				+   "---------문----------");
 		return 0;
 		}
-		protected int room1(String player) 
+		protected int room1(String player) //1번방 단서
 		{
 
 				
@@ -49,7 +49,7 @@ public class Room {
 			}
 		return 0;
 		}
-		protected int room2(String player) 
+		protected int room2(String player) //2번방 단서
 		{
 			
 			player=scanner.nextLine();
@@ -73,7 +73,7 @@ public class Room {
 			return 0;
 			
 		};
-		protected int room3(String player) 
+		protected int room3(String player) //3번방 단서
 		{
 			
 			player=scanner.nextLine();
@@ -98,7 +98,7 @@ public class Room {
 			return 0;
 			
 		};
-		protected int room4(String player) 
+		protected int room4(String player) //4번방 단서
 		{
 			
 			player=scanner.nextLine();
@@ -123,7 +123,7 @@ public class Room {
 			return 0;
 			
 		};
-		protected int room5(String player) 
+		protected int room5(String player) //5번방 단서
 		{
 			
 			player=scanner.nextLine();

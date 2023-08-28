@@ -8,7 +8,7 @@ public class Inventory
 	Scanner scanner = new Scanner(System.in);
 	protected String[] evidences = new String[5];			
 	
-	protected int inven(String player) 
+	protected int inven(String player) //인벤토리
 	{
 		player=scanner.nextLine();
 		if(player.equals("v")) 
