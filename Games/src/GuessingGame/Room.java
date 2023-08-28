@@ -9,7 +9,7 @@ public class Room {
 		Scanner scanner = new Scanner(System.in);		
 	
 	protected String[] furniture = new String[] {"침대","액자","책상"};
-		protected int rooms() { //방구조만들기
+		protected int rooms() {//방 구좃 ㅐㅇ성
 
 		for (int i=0; i <3; i++) 
 		{
@@ -149,3 +149,5 @@ public class Room {
 			
 		};
 }
+	
+

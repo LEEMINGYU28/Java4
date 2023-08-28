@@ -37,7 +37,7 @@ public class Suspect {
 				"그날 밤에는 사업 계획을 몇 번 더 검토하고 있었어요.\n"
 				+ "피해자와의 마지막 회의 후, 제 방으로 돌아와 계속해서 사업계획을 검토하고 있었어요."//3
 			};
-	protected int suspectA(String player) //투숙객A 
+	protected int suspectA(String player) //투숙객A
 	{
 		while(true) 
 		{
@@ -66,7 +66,7 @@ public class Suspect {
 		}
 		return 0;
 	};
-	protected int suspectB(String player)  //투숙객B
+	protected int suspectB(String player) //투숙객B
 	{
 		while(true) 
 		{
@@ -153,7 +153,7 @@ public class Suspect {
 		}
 		return 0;
 	};
-	protected int victim(String player) //피해
+	protected int victim(String player) //피해자 
 	{
 		while(true) 
 		{
