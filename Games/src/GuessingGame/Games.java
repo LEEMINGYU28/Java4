@@ -41,10 +41,12 @@ public class Games
 						System.out.println(scenario.question[6]);
 						suspect.victim(player);
 						System.out.println(scenario.question[5]);
+						break;
 		}
+		return 0;
 		
 	};
-	
+
 
 
 }

@@ -104,9 +104,9 @@ public class Suspect {
 			{
 			case "y":System.out.println(scenario.story[2]);
 			continue;
-			case "1":System.out.println("투숙객B:"+reiationship[2]+scenario.question[3]);
+			case "1":System.out.println("투숙객C:"+reiationship[2]+scenario.question[3]);
 			continue;
-			case "2":System.out.println("투숙객B:"+alibi[2]+scenario.question[3]);
+			case "2":System.out.println("투숙객C:"+alibi[2]+scenario.question[3]);
 			continue;
 			case "n":System.out.println(3+scenario.question[4]);
 			continue;
@@ -173,7 +173,7 @@ public class Suspect {
 							case "A","B","C":System.out.println("범인은 투숙객D였다. 호텔에 불을 지르고 도망갔다.\n"
 																+"범인잡기 실패 게임패배");
 							break;
-							case "D":System.out.println("범인은 D였다.\n투숙객D는 평소에도 피해자와 사업 투자지분에도 욕심을 내고 있었다.\n"
+							case "D":System.out.println("범인은 D였다.\n투숙객D는 평소에도 피해자의 사업 지분에도 욕심을 내고 있었다.\n"
 									+ "피해자가 없어진다면 투숙객D가 지분을 \n모두 가질 수 있을거라 생각하여 범행을 하였다고 자백하였다.\n추리성공\n게임종료");
 							break;
 							}
