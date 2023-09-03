@@ -31,7 +31,8 @@ public class Main {
 			System.out.println(scenario.question[5]);
 			
 			game.progress();
-		
+			
+			
 		
 	}	
 		else

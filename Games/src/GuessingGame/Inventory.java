@@ -8,8 +8,8 @@ public class Inventory
 	Scanner scanner = new Scanner(System.in);
 	protected String[] evidences = new String[5];			
 	
-	protected int inven(String player) //인벤토리
-	{
+	protected int inven(String player) {//인벤토리
+	boolean key = false;
 		player=scanner.nextLine();
 		if(player.equals("v")) 
 		{	
@@ -20,8 +20,14 @@ public class Inventory
 					{
 					System.out.println(evidences[i]);
 					};
-			}
+			}		
 		};
+		for(String item : evidences) {
+			if(item.equals("피해자 방 열쇠")) {
+				key=true;
+				break;
+			}
+		}
 		return 0;
 	}
 
