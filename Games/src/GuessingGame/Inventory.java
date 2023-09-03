@@ -6,10 +6,9 @@ public class Inventory
 {
 	Scenario scenario = new Scenario();
 	Scanner scanner = new Scanner(System.in);
-	protected String[] evidences = new String[5];			
+	protected String[] evidences = new String[5];	
 	
 	protected int inven(String player) {//인벤토리
-	boolean key = false;
 		player=scanner.nextLine();
 		if(player.equals("v")) 
 		{	
@@ -22,14 +21,7 @@ public class Inventory
 					};
 			}		
 		};
-		for(String item : evidences) {
-			if(item.equals("피해자 방 열쇠")) {
-				key=true;
-				break;
-			}
-		}
 		return 0;
 	}
 
-	
- }
+}

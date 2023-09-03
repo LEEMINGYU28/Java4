@@ -9,7 +9,7 @@ public class Room {
 		Scanner scanner = new Scanner(System.in);		
 		Suspect suspect = new Suspect();				
 		String[] name = new String[] {"침대","책상","액자"};
-	
+		String[] _inventory = new String[] {};
 		
 	protected String[] furniture = new String[] {"침대","액자","책상"};
 		protected int rooms() {//방 구조 생성
@@ -39,6 +39,7 @@ public class Room {
 					System.out.println("저장완료/인벤토리 확인=v입력");
 					inventory.evidences[0]=evidence.name[0];
 					inventory.inven(player);
+					_inventory = inventory.evidences.clone();
 					System.out.println(scenario.question[2]);
 					evidences=true;																		
 				}	

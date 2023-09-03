@@ -12,6 +12,7 @@ public class Games extends Inventory
 	
 	
 	protected int progress() {
+		boolean key =false;
 		while(true) 
 		{
 			player=scanner.nextLine();
@@ -36,17 +37,12 @@ public class Games extends Inventory
 						suspect.suspectD(player);
 						System.out.println(scenario.question[5]);
 			continue;
-			case "5":
-		        System.out.println(5 + suspect.information[4] + "\n열쇠사용하기 > 사용입력");
-		        player = scanner.nextLine();
-		        	inven(player);
-		            System.out.println(room.rooms() + 5 + "번방 피해자의 방이다." + scenario.question[0]);
+			case "5":		       
+		        	System.out.println(room.rooms() + 5 + "번방 피해자의 방이다." + scenario.question[0]);
 		            room.room5(player);
 		            System.out.println(scenario.question[6]);
 		            suspect.victim(player);
 		            System.out.println(scenario.question[5]);
-
-		            System.out.println("열쇠가 없습니다.");
 		        continue;
 			}
 	}

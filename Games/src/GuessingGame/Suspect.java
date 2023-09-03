@@ -2,11 +2,11 @@ package GuessingGame;
 
 import java.util.Scanner;
 
-public class Suspect {
+public class Suspect{
 	Scenario scenario = new Scenario();
 	Evidence evidence = new Evidence();
 	Inventory inventory = new Inventory();
-//	Games game = new Games();
+	
 	Scanner scanner = new Scanner(System.in);
 	
 	protected String[] information = new String[] //투숙객 설명
@@ -14,8 +14,8 @@ public class Suspect {
 			+ "많은 추억을 쌓았다고 한다.",//0
 			"번방에 들어오자 2번방에는 밝은 미소를 띤 투숙객B가 있었다.",//1
 			"번방 안에는 예술적인 분위기를 풍기는 투숙객 C가 있었다. ",//2
-			"번방 안에는 구멍난듯한 옷을 입고 미소를 짓고있는 사업파트너 투숙객 D가 있었다.",//3
-			"번방 피해자의 방이다. 잠겨있는것 같다. 피해자의 방열쇠를 사용해보자."}; //4
+			"번방 안에는 구멍난듯한 옷을 입고 미소를 짓고있는 사업파트너 투숙객 D가 있었다."//3
+			};
 	protected String[] reiationship =new String[] //피해자와의 관계
 			{
 			"저와 피해자는 어린 시절부터 친구였어요.\n같은 동네에서 자랐고, 항상 함께 노는 것을 좋아했어요.\n"
@@ -165,9 +165,10 @@ public class Suspect {
 					switch(player)
 					{
 					case "z":System.out.println(scenario.question[5]);
-					player=scanner.nextLine();
+					player=scanner.nextLine();				
+					break;
 					case "g":System.out.println("범인은 누구인가?\nA,B,C,D입력");
-							player=scanner.nextLine();
+							player=scanner.nextLine();							
 							switch(player) 
 							{
 							case "A","B","C":System.out.println("범인은 투숙객D였다. 호텔에 불을 지르고 도망갔다.\n"
