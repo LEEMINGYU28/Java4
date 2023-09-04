@@ -8,8 +8,7 @@ public class Room {
 		Inventory inventory = new Inventory();
 		Scanner scanner = new Scanner(System.in);		
 		Suspect suspect = new Suspect();				
-		String[] name = new String[] {"침대","책상","액자"};
-		String[] _inventory = new String[] {};
+
 		
 	protected String[] furniture = new String[] {"침대","액자","책상"};
 		protected int rooms() {//방 구조 생성
@@ -36,10 +35,10 @@ public class Room {
 					System.out.println(evidence.name[0]+evidence.description[0]
 										+scenario.question[1]);
 					player=scanner.nextLine();
-					System.out.println("저장완료/인벤토리 확인=v입력");
+					System.out.println("저장완료/인벤토리 확인='v'입력");
 					inventory.evidences[0]=evidence.name[0];
+					inventory.evidences[0]="피해자 핸드폰";
 					inventory.inven(player);
-					_inventory = inventory.evidences.clone();
 					System.out.println(scenario.question[2]);
 					evidences=true;																		
 				}	
@@ -67,8 +66,9 @@ public class Room {
 					player=scanner.nextLine();
 					while(!number) {
 						if(player.equals("0828")) {
-							System.out.println("최근통화목록:투숙객D\n마지막통화는 투숙객D와 한거같다.\n다음 >n입력");
+							System.out.println("최근통화목록:투숙객D\n마지막통화는 투숙객D와 한거같다.\n다음 'n'입력");
 							inventory.evidences[1]=evidence.name[1];
+							inventory.evidences[1]="피해자 비밀번호:0828";
 							inventory.inven(player);
 						number=true;
 						}else {
@@ -100,8 +100,9 @@ public class Room {
 					System.out.println(evidence.name[2]+evidence.description[2]
 									+scenario.question[1]);
 					player=scanner.nextLine();
-					System.out.println("저장완료/인벤토리 확인=v입력");
+					System.out.println("저장완료/인벤토리 확인='v'입력");
 					inventory.evidences[2]=evidence.name[2];
+					inventory.evidences[2]="피해자 방 열쇠";
 					inventory.inven(player);
 					System.out.println(scenario.question[2]);
 					evidences=true;
@@ -128,8 +129,9 @@ public class Room {
 					System.out.println(evidence.name[3]+evidence.description[3]
 									+scenario.question[1]);
 					player=scanner.nextLine();
-					System.out.println("저장완료/인벤토리 확인=v입력");
+					System.out.println("저장완료/인벤토리 확인='v'입력");
 					inventory.evidences[3]=evidence.name[3];
+					inventory.evidences[3]="찢어진 옷 조각";
 					inventory.inven(player);
 					System.out.println(scenario.question[2]);
 					evidences=true;
@@ -156,8 +158,9 @@ public class Room {
 					System.out.println(evidence.name[4]+evidence.description[4]
 									+scenario.question[1]);
 					player=scanner.nextLine();
-					System.out.println("저장완료/ 인벤토리 확인= v입력");
+					System.out.println("저장완료/ 인벤토리 확인='v'입력");
 					inventory.evidences[4]=evidence.name[4];
+					inventory.evidences[4]="피해자의 일기";
 					inventory.inven(player);
 					evidences=true;
 				}

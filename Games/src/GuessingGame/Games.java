@@ -11,8 +11,7 @@ public class Games extends Inventory
 	Suspect suspect = new Suspect();
 	
 	
-	protected int progress() {
-		boolean key =false;
+	protected int progress(Room room) {
 		while(true) 
 		{
 			player=scanner.nextLine();
@@ -37,13 +36,37 @@ public class Games extends Inventory
 						suspect.suspectD(player);
 						System.out.println(scenario.question[5]);
 			continue;
-			case "5":		       
-		        	System.out.println(room.rooms() + 5 + "번방 피해자의 방이다." + scenario.question[0]);
-		            room.room5(player);
-		            System.out.println(scenario.question[6]);
-		            suspect.victim(player);
-		            System.out.println(scenario.question[5]);
-		        continue;
+			case "5":
+					System.out.println(5 + suspect.information[4] + "\n열쇠사용하기 > '사용'입력");
+					
+					player = scanner.nextLine();
+					boolean key = false;
+					int count=0;
+					for(int i=0; i<evidences.length; i++) {
+						if(room.inventory.evidences[i].equals("피해자 방 열쇠")){
+							key = true;
+						}
+						else {
+							count++;
+							System.out.println(count);
+							if (count==5) {
+								System.out.println("열쇠가 없습니다.");
+								System.out.println("다른방 번호를 눌러주세요");
+								break;
+							}							
+							continue;
+						}
+						if (key==true) {
+				            System.out.println(room.rooms() + 5 + "번방 피해자의 방이다." + scenario.question[0]);
+				            room.room5(player);
+				            System.out.println(scenario.question[6]);
+				            suspect.victim(player);
+				            System.out.println(scenario.question[5]);
+//				            System.exit(1);
+				            break;
+				        }
+
+					}
 			}
 	}
 

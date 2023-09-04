@@ -8,8 +8,7 @@ public class Start {
 	Scenario scenario = new Scenario();
 	Room room = new Room();
 	Suspect suspect = new Suspect();
-	Inventory inventory = new Inventory();
-	Evidence evidence = new Evidence();
+
 	protected int start() {
 		System.out.println("\n스토리\n"+scenario.story[0]+"\n 호텔 입장 >입력");
 		
@@ -36,26 +35,6 @@ public class Start {
 			}
 		return 0;	
 	}		
-//		protected int input() {
-//		boolean inputs = false;
-//		player = scanner.nextLine();
-//		while(!inputs) {
-//			if(player.equals("i")) {
-//				System.out.println("저장완료/인벤토리 확인=v입력");
-//				inputs=true;
-//				player = scanner.nextLine();
-//				}else if(player.equals("v")) {
-//					inventory.evidences[0]=evidence.name[0];
-//					inventory.inven(player);
-//					System.out.println(scenario.question[2]);
-//				}
-//				else {
-//					System.out.println("재입력");
-//					player = scanner.nextLine();
-//				}
-//			}
-//		return 0;
-//		}
-//			
-	}
+
+}
 

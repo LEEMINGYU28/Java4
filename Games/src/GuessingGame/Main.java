@@ -6,10 +6,8 @@ import java.util.Scanner;
 public class Main {
 	
 	public static void main(String[]args) {
-	Evidence evidence =new Evidence();
 	Scenario scenario =new Scenario();
 	Suspect suspect =new Suspect();
-	Inventory inventory=new Inventory();
 	Room room =new Room();
 	Games game = new Games();
 	Start start = new Start();
@@ -28,9 +26,10 @@ public class Main {
 			
 			suspect.suspectA(player);
 
+			
 			System.out.println(scenario.question[5]);
 			
-			game.progress();
+			game.progress(room);
 			
 			
 		

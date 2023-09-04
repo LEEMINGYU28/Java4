@@ -2,12 +2,16 @@ package GuessingGame;
 
 import java.util.Scanner;
 
-public class Inventory 
-{
-	Scenario scenario = new Scenario();
+public class Inventory {
 	Scanner scanner = new Scanner(System.in);
-	protected String[] evidences = new String[5];	
+	protected String[] evidences = new String[5];
 	
+		Inventory() {
+			for (int i=0;i<5;i++) {
+			evidences[i]="";
+			}			
+		}
+
 	protected int inven(String player) {//인벤토리
 		player=scanner.nextLine();
 		if(player.equals("v")) 
@@ -15,13 +19,14 @@ public class Inventory
 			for(int i=0; i <evidences.length; i++) 
 			{
 				
-				if(evidences[i]!=null)
+				if(evidences[i]!="")
 					{
 					System.out.println(evidences[i]);
 					};
 			}		
 		};
-		return 0;
+		return 0;	
 	}
+	
 
 }
