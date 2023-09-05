@@ -7,7 +7,8 @@ public class Room {
 		Evidence evidence = new Evidence();
 		Inventory inventory = new Inventory();
 		Scanner scanner = new Scanner(System.in);		
-		Suspect suspect = new Suspect();				
+		Suspect suspect = new Suspect();
+		Player players = new Player(null); 
 
 		
 	protected String[] furniture = new String[] {"침대","액자","책상"};
@@ -36,6 +37,8 @@ public class Room {
 										+scenario.question[1]);
 					player=scanner.nextLine();
 					System.out.println("저장완료/인벤토리 확인='v'입력");
+					players.AddItem("핸드폰");
+					players.listInventory();
 					inventory.evidences[0]=evidence.name[0];
 					inventory.evidences[0]="피해자 핸드폰";
 					inventory.inven(player);
@@ -88,7 +91,7 @@ public class Room {
 					player=scanner.nextLine();
 				}
 			}								
-			return 0;			
+		return 0;			
 		};
 		protected int room3(String player) {//3번방 단서					
 			boolean evidences =false;
@@ -101,6 +104,9 @@ public class Room {
 									+scenario.question[1]);
 					player=scanner.nextLine();
 					System.out.println("저장완료/인벤토리 확인='v'입력");
+					players.AddItem("피해자 방 열쇠");
+					players.listInventory();
+					players.AddItem(evidence.name[2]);
 					inventory.evidences[2]=evidence.name[2];
 					inventory.evidences[2]="피해자 방 열쇠";
 					inventory.inven(player);
