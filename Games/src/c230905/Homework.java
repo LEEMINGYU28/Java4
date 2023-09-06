@@ -46,10 +46,12 @@ public class Homework {
 		stack.push("2번");
 		stack.push("3번");
 		stack.push("4번");
-		
-		stack.pop();
 		System.out.println("스택길이:"+stack.size());
 		System.out.println("스택의 맨위:"+stack.pop());
+		
+		stack.pop();
+		System.out.println("데이터삭제후:"+stack.size());
+		
 		
 		int index=4;
 		String element = stack.check();
