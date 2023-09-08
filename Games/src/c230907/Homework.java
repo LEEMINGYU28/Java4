@@ -3,7 +3,6 @@ package c230907;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
-import java.util.NavigableSet;
 import java.util.PriorityQueue;
 import java.util.Scanner;
 
@@ -41,10 +40,7 @@ public void addTask(String todo,int priority) {
 	tasks.add(task);
 	
 }
-private boolean isNumeric(String valueOf) {
-	// TODO Auto-generated method stub
-	return false;
-}
+
 public void lastTask() {
 	if(tasks.isEmpty())	{
 		System.out.println("할일이 없습니다.");
