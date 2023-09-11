@@ -21,9 +21,10 @@ public class Main {
 	{
 
 			start.start();
+			start.start2();
 			
 			room.room1(player);		
-			
+//			
 			suspect.suspectA(player);
 
 			
