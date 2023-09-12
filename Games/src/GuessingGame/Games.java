@@ -22,21 +22,21 @@ public class Games extends Inventory {
 				System.out.println(scenario.question[2]);
 				suspect.suspectB(player);
 				System.out.println(scenario.question[5]);
-				continue;
+				break;
 			case "3":
 				System.out.println(room.rooms() + 3 + suspect.information[2] + scenario.question[0]);
 				room.room3(player);
 				System.out.println(scenario.question[2]);
 				suspect.suspectC(player);
 				System.out.println(scenario.question[5]);
-				continue;
+				break;
 			case "4":
 				System.out.println(room.rooms() + 4 + suspect.information[3] + scenario.question[0]);
 				room.room4(player);
 				System.out.println(scenario.question[2]);
 				suspect.suspectD(player);
 				System.out.println(scenario.question[5]);
-				continue;
+				break;
 			case "5":
 				System.out.println(5 + suspect.information[4] + "\n열쇠사용하기 > '사용'입력");
 
@@ -54,7 +54,6 @@ public class Games extends Inventory {
 							System.out.println("다른방 번호를 눌러주세요");
 							break;
 						}
-						continue;
 					}
 					if (key == true) {
 						System.out.println(room.rooms() + 5 + "번방 피해자의 방이다." + scenario.question[0]);

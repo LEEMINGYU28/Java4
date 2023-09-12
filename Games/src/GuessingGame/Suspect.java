@@ -37,7 +37,7 @@ public class Suspect{
 				"그날 밤에는 사업 계획을 몇 번 더 검토하고 있었어요.\n"
 				+ "피해자와의 마지막 회의 후, 제 방으로 돌아와 계속해서 사업계획을 검토하고 있었어요."//3
 			};
-	protected int suspectA(String player) //투숙객A
+	protected void suspectA(String player) //투숙객A
 	{
 		while(true) 
 		{
@@ -45,13 +45,15 @@ public class Suspect{
 			switch(player) 
 			{
 			case "y":System.out.println(scenario.story[2]);
-			continue;
+			break;
 			case "1":System.out.println("투숙객A:"+reiationship[0]+scenario.question[3]);
-			continue;
+			break;
 			case "2":System.out.println("투숙객A:"+alibi[0]+scenario.question[3]);
-			continue;
+			break;
 			case "n":System.out.println(1+scenario.question[4]);
-			continue;
+			break;
+			case "z":System.out.println(scenario.question[5]);
+			return;
 			case "v":
 				for(int i=0; i<inventory.evidences.length; i++)
 				{
@@ -60,11 +62,11 @@ public class Suspect{
 						System.out.println(inventory.evidences[i]);
 					}
 				}
-			continue;
-			}
+				break;
+			default: System.out.println("재입력하세요.");
 			break;
+			}
 		}
-		return 0;
 	};
 	protected int suspectB(String player) //투숙객B
 	{

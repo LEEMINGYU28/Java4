@@ -55,7 +55,6 @@ public class Start extends Room {
 				return;
 			default:
 				System.out.println(">>입력");
-				player = scanner.nextLine();
 				break;
 			}
 		}

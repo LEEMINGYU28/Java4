@@ -28,12 +28,10 @@ public class Main {
 			suspect.suspectA(player);
 
 			
-			System.out.println(scenario.question[5]);
+//			System.out.println(scenario.question[5]);
 			
 			game.progress(room);
 			
-			
-		
 	}	
 		else
 		{

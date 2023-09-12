@@ -13,7 +13,6 @@ public class Inventory {
 		}
 
 	protected int inven(String player) {//인벤토리
-		player=scanner.nextLine();
 		if(player.equals("v")) 
 		{	
 			for(int i=0; i <evidences.length; i++) 

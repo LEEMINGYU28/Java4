@@ -3,6 +3,7 @@ package GuessingGame;
 import java.util.Scanner;
 
 public class Room {
+
 	Scenario scenario = new Scenario();
 	Evidence evidence = new Evidence();
 	Inventory inventory = new Inventory();
@@ -29,44 +30,46 @@ public class Room {
 		boolean evidences = false;
 		player = scanner.nextLine();
 
-		while (true) {
+		while (!evidences) {
 			switch (player) {
 			case "액자":
 				System.out.println(scenario.find[1]);
 				System.out.println(evidence.name[0] + evidence.description[0] + scenario.question[1]);
+				while (true) {
+
+					player = scanner.nextLine();
+					switch (player) {
+					case "i":
+						System.out.println("저장완료 인벤토리 확인='v'입력");
+						while (true) {
+							player = scanner.nextLine();
+							switch (player) {
+							case "v":
+								inventory.evidences[0] = evidence.name[0];
+								inventory.inven(player);
+								System.out.println(scenario.question[2]);
+								evidences = true;
+								return;
+							default:
+								System.out.println("v재입력");
+								break;
+							}
+						}
+					default:
+						System.out.println("i 재입력");
+						break;
+					}
+				}
 			default:
 				System.out.println("아무것도 안보인다. 다른곳을 조사해보자.");
 				player = scanner.nextLine();
 				break;
 			}
-			while (true) {
-				player = scanner.nextLine();
-				switch (player) {
-				case "i":
-					System.out.println("저장완료 인벤토리 확인='v'입력");
-					return;
-				default:
-					System.out.println("i 재입력");
-					break;
-				}
-				while (true) {
-					player = scanner.nextLine();
-					switch (player) {
-					case "v":
-						inventory.evidences[0] = evidence.name[0];
-						inventory.inven(player);
-						System.out.println(scenario.question[2]);
-						evidences = true;
-						return;
-					default:
-						System.out.println("v재입력");
-						break;
-					}
-
-				}
-			}
 
 		}
+
+	};
+
 //		while (!evidences) {
 //			if (player.equals("액자")) {
 //				System.out.println(scenario.find[1]);
@@ -89,8 +92,6 @@ public class Room {
 //			}
 //			break;
 //		}
-
-	};
 
 	protected int room2(String player) {// 2번방 단서
 		boolean evidences = false;
