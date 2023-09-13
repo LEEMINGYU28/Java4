@@ -93,39 +93,61 @@ public class Room {
 //			break;
 //		}
 
-	protected int room2(String player) {// 2번방 단서
+	protected void room2(String player) {// 2번방 단서
 		boolean evidences = false;
 		boolean number = false;
 		player = scanner.nextLine();
-		while (!evidences) {
 
-			if (player.equals("책상")) {
+		while(true) {
+			if(player.equals("책상")) {
 				System.out.println(scenario.find[2]);
 				System.out.println(evidence.name[1] + evidence.description[1]);
-				player = scanner.nextLine();
-				while (!number) {
-					if (player.equals("0828")) {
-						System.out.println("최근통화목록:투숙객D\n마지막통화는 투숙객D와 한거같다.\n다음 'n'입력");
-						inventory.evidences[1] = evidence.name[1];
-						inventory.evidences[1] = "피해자 비밀번호:0828";
-						inventory.inven(player);
-						number = true;
-					} else {
-						System.out.println("비밀번호가 틀렸습니다. 재입력해주세요.");
-						player = scanner.nextLine();
-					}
-				}
-				evidences = true;
-			} else if (player.equals("액자") || player.equals("침대")) {
-				System.out.println(scenario.search[0]);
-				player = scanner.nextLine();
-				continue;
-			} else {
-				System.out.println("재입력");
-				player = scanner.nextLine();
+				player = scanner.nextLine();				
 			}
-		}
-		return 0;
+			else{
+				System.out.println("아무것도 안보인다 다른곳을 조사해보자.");
+				player = scanner.nextLine();
+				break;
+			}
+			if(!player.equals("0828")) {
+				System.out.println("최근통화목록:투숙객D\n마지막통화는 투숙객D와 한거같다.\n다음 'n'입력");
+				inventory.evidences[1] = evidence.name[1];
+				inventory.evidences[1] = "피해자 비밀번호:0828";
+				inventory.inven(player);
+			}else{
+				System.out.println("비밀번호가 틀렸습니다. 재입력해주세요.");
+				player = scanner.nextLine();
+			
+			}
+			
+		}	
+
+//			if (player.equals("책상")) {
+//				System.out.println(scenario.find[2]);
+//				System.out.println(evidence.name[1] + evidence.description[1]);
+//				player = scanner.nextLine();
+//				while (!number) {
+//					if (player.equals("0828")) {
+//						System.out.println("최근통화목록:투숙객D\n마지막통화는 투숙객D와 한거같다.\n다음 'n'입력");
+//						inventory.evidences[1] = evidence.name[1];
+//						inventory.evidences[1] = "피해자 비밀번호:0828";
+//						inventory.inven(player);
+//						number = true;
+//					} else {
+//						System.out.println("비밀번호가 틀렸습니다. 재입력해주세요.");
+//						player = scanner.nextLine();
+//					}
+//				}
+//				evidences = true;
+//			} else if (player.equals("액자") || player.equals("침대")) {
+//				System.out.println(scenario.search[0]);
+//				player = scanner.nextLine();
+//				continue;
+//			} else {
+//				System.out.println("재입력");
+//				player = scanner.nextLine();
+//			}
+//		}
 	};
 
 	protected int room3(String player) {// 3번방 단서

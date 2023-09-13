@@ -76,13 +76,13 @@ public class Suspect{
 			switch(player) 
 			{
 			case "y":System.out.println(scenario.story[2]);
-			continue;
+			break;
 			case "1":System.out.println("투숙객B:"+reiationship[1]+scenario.question[3]);
-			continue;
+			break;
 			case "2":System.out.println("투숙객B:"+alibi[1]+scenario.question[3]);
-			continue;
+			break;
 			case "n":System.out.println(2+scenario.question[4]);
-			continue;
+			break;
 			case "v":
 				for(int i=0; i<inventory.evidences.length; i++)
 				{
@@ -91,11 +91,10 @@ public class Suspect{
 						System.out.println(inventory.evidences[i]);
 					}
 				}
-			continue;
-			}
+			default: System.out.println("재입력하세요.");
 			break;
+			}
 		}
-		return 0;
 	};
 	protected int suspectC(String player) //투숙객C
 	{
