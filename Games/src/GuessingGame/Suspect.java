@@ -68,7 +68,7 @@ public class Suspect{
 			}
 		}
 	};
-	protected int suspectB(String player) //투숙객B
+	protected void suspectB(String player) //투숙객B
 	{
 		while(true) 
 		{
@@ -83,6 +83,39 @@ public class Suspect{
 			break;
 			case "n":System.out.println(2+scenario.question[4]);
 			break;
+			case "z":System.out.println();
+			return;
+			case "v":
+				for(int i=0; i<inventory.evidences.length; i++)
+				{
+					if(inventory.evidences[i]!=null)
+					{
+						System.out.println(inventory.evidences[i]);
+					}
+				}
+				break;
+			default: System.out.println("재입력하세요.");
+			break;
+			}
+		}
+	};
+	protected void suspectC(String player) //투숙객C
+	{
+		while(true) 
+		{
+		player=scanner.nextLine();
+			switch(player) 
+			{
+			case "y":System.out.println(scenario.story[2]);
+			break;
+			case "1":System.out.println("투숙객C:"+reiationship[2]+scenario.question[3]);
+			break;
+			case "2":System.out.println("투숙객C:"+alibi[2]+scenario.question[3]);
+			break;
+			case "n":System.out.println(3+scenario.question[4]);
+			break;
+			case "z":System.out.println();
+			return;
 			case "v":
 				for(int i=0; i<inventory.evidences.length; i++)
 				{
@@ -92,11 +125,11 @@ public class Suspect{
 					}
 				}
 			default: System.out.println("재입력하세요.");
-			break;
+				break;
 			}
 		}
 	};
-	protected int suspectC(String player) //투숙객C
+	protected void suspectD(String player) //투숙객D
 	{
 		while(true) 
 		{
@@ -104,42 +137,15 @@ public class Suspect{
 			switch(player) 
 			{
 			case "y":System.out.println(scenario.story[2]);
-			continue;
-			case "1":System.out.println("투숙객C:"+reiationship[2]+scenario.question[3]);
-			continue;
-			case "2":System.out.println("투숙객C:"+alibi[2]+scenario.question[3]);
-			continue;
-			case "n":System.out.println(3+scenario.question[4]);
-			continue;
-			case "v":
-				for(int i=0; i<inventory.evidences.length; i++)
-				{
-					if(inventory.evidences[i]!=null)
-					{
-						System.out.println(inventory.evidences[i]);
-					}
-				}
-			continue;
-			}
 			break;
-		}
-		return 0;
-	};
-	protected int suspectD(String player) //투숙객D
-	{
-		while(true) 
-		{
-		player=scanner.nextLine();
-			switch(player) 
-			{
-			case "y":System.out.println(scenario.story[2]);
-			continue;
 			case "1":System.out.println("투숙객D:"+reiationship[3]+scenario.question[3]);
-			continue;
+			break;
 			case "2":System.out.println("투숙객D:"+alibi[3]+scenario.question[3]);
-			continue;
+			break;
 			case "n":System.out.println(3+scenario.question[4]);
-			continue;
+			break;
+			case "z":System.out.println();
+			return;
 			case "v":
 				for(int i=0; i<inventory.evidences.length; i++)
 				{
@@ -148,13 +154,13 @@ public class Suspect{
 						System.out.println(inventory.evidences[i]);
 					}
 				}
-			continue;
-			}
+				break;
+			default: System.out.println("재입력하세요.");
 			break;
+			}
 		}
-		return 0;
 	};
-	protected int victim(String player) //피해자 
+	protected void victim(String player) //피해자 
 	{
 		while(true) 
 		{
@@ -179,9 +185,10 @@ public class Suspect{
 							case "D":System.out.println("범인은 D였다.\n투숙객D는 평소에도 피해자의 사업 지분에도 욕심을 내고 있었다.\n"
 									+ "피해자가 없어진다면 투숙객D가 지분을 \n모두 가질 수 있을거라 생각하여 범행을 하였다고 자백하였다.\n추리성공\n게임종료");
 							break;
+							default:System.out.println("재입력해주세요.");
+							break;
 							}
-					}
-					continue;	
+					}	
 			case "v":
 				for(int i=0; i<inventory.evidences.length; i++)
 				{
@@ -190,10 +197,9 @@ public class Suspect{
 						System.out.println(inventory.evidences[i]);
 					}
 				}
-			continue;
-			}
 			break;
+			default: System.out.println("재입력해주세요.");
+			}
 		}
-		return 0;
 	};
 }
