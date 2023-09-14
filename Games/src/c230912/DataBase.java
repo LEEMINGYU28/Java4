@@ -61,9 +61,6 @@ id number(10,0) CONSTRAINT pk_id PRIMARY KEY,
 name varchar2(10) NOT NULL,
 student_id varchar2(20),
 
-
-
-
 sysdate 받아서 데이터를 또 바꿔줘야 초 단위 까지 출력가능
 //시간 서버의 기본시간 설정
 
@@ -174,10 +171,28 @@ Long
 	- JSON이라는 형태로 바꿔주면 ["안녕하세요, 저는 누구입니다."] 배열을 다 보낸다.
 	- {name:"홍길동"} > -{"name":"홍길동"} 앞에 키를 String으로 바꿔준다.
 	
+## 인덱스 생성
+
+	 create index tast3_name on test3(name);
+	 생성
+	 drop index test3_name;
+	 삭제
 	 
-	 
-	 
-	 
+## 관계 맺기
+	 	 constraint fk_hobby_to_student
+	
+	 constraint fk_student_to_hobby foreign key (student_ids) references student (ids)
+	 				외래키 이름 지어주고 		어떤 컬럼이 외래키인가 무엇을참조할것인가 = 
+
+select student.name as "학생", student.age as "나이", hobby.name as "취미" from student full outer join hobby on student.ids = hobby.student_ids;
+	
+full 양쪽데이터를 모두 뽑아낸다.
+left 왼쪽의 데이터를 뽑아낸다
+rihgt 오른쪽의 데이터를 뽑아낸다.
+
+join hobby on hobby.hobby_id = student_hobby.hobby_id;
+			  (테이블)(컬럼(변수))      (가져올 테이블) 	
+
 */
 
 
