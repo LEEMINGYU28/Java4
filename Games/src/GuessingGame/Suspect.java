@@ -37,7 +37,7 @@ public class Suspect{
 				"그날 밤에는 사업 계획을 몇 번 더 검토하고 있었어요.\n"
 				+ "피해자와의 마지막 회의 후, 제 방으로 돌아와 계속해서 사업계획을 검토하고 있었어요."//3
 			};
-	protected void suspectA(String player) //투숙객A
+	protected void suspectA(String player) //투숙객A 1
 	{
 		while(true) 
 		{
@@ -68,7 +68,7 @@ public class Suspect{
 			}
 		}
 	};
-	protected void suspectB(String player) //투숙객B
+	protected void suspectB(String player) //투숙객B2
 	{
 		while(true) 
 		{
@@ -99,7 +99,7 @@ public class Suspect{
 			}
 		}
 	};
-	protected void suspectC(String player) //투숙객C
+	protected void suspectC(String player) //투숙객C 3
 	{
 		while(true) 
 		{
