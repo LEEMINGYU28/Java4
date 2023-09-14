@@ -2,7 +2,7 @@ package c230913;
 
 public class Oracle {
 
- ```sql
+
 create table student(
 ids number(10,0) CONSTRAINT pk_ids PRIMARY KEY,
 name varchar2(10) NOT NULL,
@@ -289,6 +289,5 @@ location)
 values(2,'운동','헬스','1시간','헬스장');
 
 commit;
-```
  
 }
