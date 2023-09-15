@@ -13,7 +13,7 @@ public class Room {
 
 	protected String[] furniture = new String[] { "침대", "액자", "책상" };
 
-	protected int rooms() {// 방 구조 생성 2
+	protected int rooms() {// 방 구조 생성 
 		for (int i = 0; i < 3; i++) {
 			int k = (int) (Math.random() * 3);
 

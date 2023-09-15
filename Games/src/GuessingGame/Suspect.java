@@ -162,7 +162,8 @@ public class Suspect{
 	};
 	protected void victim(String player) //피해자 
 	{
-		while(true) 
+		boolean ending = false;
+		while(!ending) 
 		{
 			
 		player=scanner.nextLine();
@@ -170,25 +171,41 @@ public class Suspect{
 			{
 			case "y":System.out.println("범인을 지목하겠다면 g입력 좀더 조사하고 싶다면 z입력");
 					player=scanner.nextLine();
+		
 					switch(player)
 					{
 					case "z":System.out.println(scenario.question[5]);
 					player=scanner.nextLine();				
 					break;
 					case "g":System.out.println("범인은 누구인가?\nA,B,C,D입력");
-							player=scanner.nextLine();							
-							switch(player) 
-							{
-							case "A","B","C":System.out.println("범인은 투숙객D였다. 호텔에 불을 지르고 도망갔다.\n"
-																+"범인잡기 실패 게임패배");
-							break;
-							case "D":System.out.println("범인은 D였다.\n투숙객D는 평소에도 피해자의 사업 지분에도 욕심을 내고 있었다.\n"
-									+ "피해자가 없어진다면 투숙객D가 지분을 \n모두 가질 수 있을거라 생각하여 범행을 하였다고 자백하였다.\n추리성공\n게임종료");
-							break;
-							default:System.out.println("재입력해주세요.");
-							break;
+							player=scanner.nextLine();
+							while(!ending) {
+							if(player.equals("D")) {
+								System.out.println(scenario.ending[0]+"\n추리성공\n게임종료");
+								ending=true;
+							}else if(player.equals("A") || player.equals("B") || player.equals("C")) {
+								System.out.println(scenario.ending[1]+"\n범인잡기 실패 게임패배");
+								ending=true;
+							}else{
+								System.out.println("재입력해주세요.");
+								player=scanner.nextLine();
 							}
-					}	
+							}
+							
+//							switch(player) 
+//							{
+//							case "A","B","C":System.out.println(scenario.ending[1]+"\n범인잡기 실패 게임패배");
+//							ending = true;
+//							break;
+//							case "D":System.out.println(scenario.ending[0]+"\n추리성공\n게임종료");
+//							ending = true;
+//							break;
+//							default:System.out.println("재입력해주세요.");
+//							break;
+//							}
+						break;	
+						}
+						
 			case "v":
 				for(int i=0; i<inventory.evidences.length; i++)
 				{
@@ -199,6 +216,7 @@ public class Suspect{
 				}
 			break;
 			default: System.out.println("재입력해주세요.");
+			
 			}
 		}
 	};
