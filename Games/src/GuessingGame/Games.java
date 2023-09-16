@@ -48,7 +48,6 @@ public class Games extends Inventory {
 						key = true;
 					} else {
 						count++;
-						System.out.println(count);
 						if (count == 5) {
 							System.out.println("열쇠가 없습니다.");
 							System.out.println("다른방 번호를 눌러주세요");
