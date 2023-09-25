@@ -1,4 +1,4 @@
-package C230829;
+package c230829;
 
 public final class WhiteRace extends Person {	
 	//(이 이상에 상속은 불가능해진다)

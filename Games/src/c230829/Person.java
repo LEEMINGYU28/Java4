@@ -1,4 +1,4 @@
-package C230829;
+package c230829;
 
 interface Human {
 	//인터페이스 = 추상화를 극한으로 다룬것. 다중상속 

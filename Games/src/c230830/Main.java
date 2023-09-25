@@ -1,4 +1,4 @@
-package C230830;
+package c230830;
 
 public class Main {
 

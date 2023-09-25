@@ -1,4 +1,4 @@
-package C230829;
+package c230829;
 
 interface InterfaceTest
 {
