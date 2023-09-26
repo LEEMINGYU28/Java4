@@ -59,15 +59,13 @@ public class Games extends Inventory {
 						room.room5(player);
 						System.out.println(scenario.question[6]);
 						suspect.victim(player);
-						System.out.println(scenario.question[5]);
-//				            System.exit(1);
-
+//						System.out.println(scenario.question[5]);
+				            System.exit(1);
+						}
 					}
-
 				}
 			}
 		}
 
 	}
 
-}

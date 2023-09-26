@@ -10,7 +10,7 @@ public class Main {
 
 		System.out.println("할일 추가하기 1 종료하기 2");
 		String input = scanner.nextLine();
-		
+
 		while (true) {
 			System.out.println("제목: ");
 			String title = scanner.nextLine();
@@ -24,9 +24,9 @@ public class Main {
 
 			System.out.println("할일: ");
 			String content = scanner.nextLine();
-			 
+
 			Todo todo = new Todo(title, priority, content);
-			System.out.println("제목 :"+title+"\n우선순위 :"+priority+"\n할일 :"+content);
+			System.out.println("제목 :" + title + "\n우선순위 :" + priority + "\n할일 :" + content);
 		}
 
 	}

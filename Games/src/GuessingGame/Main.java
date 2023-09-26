@@ -26,9 +26,10 @@ public class Main {
 			
 			room.room1(player);		
 			
-			suspect.suspectA(player);
+			suspect.suspectA(player);			
 //			System.out.println(scenario.question[5]);			
 			game.progress(room);
+			
 			
 	}	
 		else
