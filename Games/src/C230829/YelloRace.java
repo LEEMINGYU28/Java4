@@ -1,4 +1,4 @@
-package C230829;
+package c230829;
 
 public non-sealed class YelloRace extends Person{
 	//(상속봉인해제)	
