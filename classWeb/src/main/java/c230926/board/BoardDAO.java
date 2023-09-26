@@ -31,7 +31,7 @@ public class BoardDAO {
 			e.printStackTrace();
 		}		
 	}
-public ArrayList<BoardVO> boardList(){
+public ArrayList<BoardVO> boardList() throws SQLException{
 		
 		ArrayList<BoardVO> list = new ArrayList<BoardVO>();
 		
@@ -53,7 +53,7 @@ public ArrayList<BoardVO> boardList(){
 				String bContent = rs.getString("bContent");
 				
 				
-				list.add(new BoardVO(bId, bName, bTitle, bContent, bDate));
+				list.add(new BoardVO(bId, bName, bTitle, bContent, null));
 				
 			}
 			
@@ -72,7 +72,7 @@ public ArrayList<BoardVO> boardList(){
 		return list;
 	}
 // 글 작성 후 데이터를 넣기
-public int write(String bName, String bTitle, String bContent) throws Exception {
+public int write(String bName, String bTitle, String bContent) throws SQLException {
 	int result = 0;
 	
 	String query = "insert into board(bId, bName, bTitle, bContent) "
@@ -101,7 +101,7 @@ public int write(String bName, String bTitle, String bContent) throws Exception 
 	return result;
 }
 // 제목 클릭 시 해당 내용 보여주기
-public BoardVO contentView(String strID) throws Exception {
+public BoardVO contentView(String strID) throws SQLException {
 	BoardVO vo = null;
 	
 	
@@ -141,6 +141,63 @@ public BoardVO contentView(String strID) throws Exception {
 	
 	return vo;
 }
+//수정	
+public int modify(String strID, String bName, String bTitle, String bContent) throws SQLException {
+		int result = 0;
 		
+		String query = "update board set bName = ?, "
+				+ "bTitle = ?, bContent = ? where bId = ?";
+		
+		try {
+			
+			con = ds.getConnection();
+			pstmt = con.prepareStatement(query);
+			
+			pstmt.setString(1, bName);
+			pstmt.setString(2, bTitle);
+			pstmt.setString(3, bContent);
+			pstmt.setInt(4, Integer.parseInt(strID));
+			
+			result = pstmt.executeUpdate();
+			
+		}catch(Exception e) {
+			e.printStackTrace();
+		}finally {
+			
+			pstmt.close();
+			con.close();
+			
+		}
+		
+		
+		return result;
+	}
+//삭제
+public int delete(String strID) throws SQLException {
+	int result = 0;
+	
+	String query = "delete from board where bId = ?";
+	
+	try {
+		
+		con = ds.getConnection();
+		pstmt = con.prepareStatement(query);
+		pstmt.setInt(1, Integer.parseInt(strID));
+		
+		result = pstmt.executeUpdate();
+		
+	}catch(Exception e) {
+		e.printStackTrace();
+	}finally {
+		
+		pstmt.close();
+		con.close();
+		
+	}
+	
+	return result;
+}
+
+
 
 }
