@@ -57,7 +57,7 @@ public class Student extends HttpServlet {
         		Integer.parseInt(request.getParameter("id"))
         		);
         }
-//        System.out.println(list.size());  
+        System.out.println(list.size());  
         
         String html = "<html>";
         

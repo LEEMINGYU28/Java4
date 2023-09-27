@@ -1,203 +1,126 @@
 package c230926.board;
 
-import java.security.Timestamp;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-
 import javax.naming.Context;
 import javax.naming.InitialContext;
+import javax.naming.NamingException;
 import javax.sql.DataSource;
 
 public class BoardDAO {
+    private DataSource ds;
 
-	private Connection con;
-	private PreparedStatement pstmt;
-	private ResultSet rs;
-	private DataSource ds;
-	
-	private BoardDAO() {
-		try {
-			
-			Context ctx = new InitialContext();
-			ds = (DataSource)ctx.lookup("java:/comp/env");
-			Context envContext = (Context) ctx.lookup("java:/comp/env");
-			DataSource dataFactory = (DataSource) 
-					envContext.lookup("jdbc/oracle");
-			con = dataFactory.getConnection();
-		}catch(Exception e) {
-			e.printStackTrace();
-		}		
-	}
-public ArrayList<BoardVO> boardList() throws SQLException{
-		
-		ArrayList<BoardVO> list = new ArrayList<BoardVO>();
-		
-		String query = "select * from board order by bId DESC";
-		// bId를 내림차순으로 정렬
-		
-		try {
-			
-			con = ds.getConnection();
-			pstmt = con.prepareStatement(query);
-			
-			rs = pstmt.executeQuery();
-			
-			while(rs.next()) {
-				
-				int bId = rs.getInt("bId");
-				String bName = rs.getString("bName");
-				String bTitle = rs.getString("bTitle");
-				String bContent = rs.getString("bContent");
-				
-				
-				list.add(new BoardVO(bId, bName, bTitle, bContent, null));
-				
-			}
-			
-			
-		}catch(Exception e) {
-			e.printStackTrace();
-		}finally {
-			
-			rs.close();
-			pstmt.close();
-			con.close();
-			
-		}
-		
-		
-		return list;
-	}
-// 글 작성 후 데이터를 넣기
-public int write(String bName, String bTitle, String bContent) throws SQLException {
-	int result = 0;
-	
-	String query = "insert into board(bId, bName, bTitle, bContent) "
-			+ "values(board_seq.nextval, ?, ?, ?)";
-	
-	try {
-		
-		con = ds.getConnection();
-		pstmt = con.prepareStatement(query);
-		
-		pstmt.setString(1, bName);
-		pstmt.setString(2, bTitle);
-		pstmt.setString(3, bContent);
-		
-		result = pstmt.executeUpdate();
-		
-	}catch(Exception e) {
-		e.printStackTrace();
-	}finally {
-		
-		pstmt.close();
-		con.close();
-		
-	}
-	
-	return result;
-}
-// 제목 클릭 시 해당 내용 보여주기
-public BoardVO contentView(String strID) throws SQLException {
-	BoardVO vo = null;
-	
-	
-	String query = "select * from board where bId = ?";
-	
-	try {
-		
-		con = ds.getConnection();
-		pstmt = con.prepareStatement(query);
-		
-		pstmt.setInt(1, Integer.parseInt(strID));
-		
-		rs = pstmt.executeQuery();
-		
-		if(rs.next()) {
-			
-			int bId = rs.getInt("bId");
-			String bName = rs.getString("bName");
-			String bTitle = rs.getString("bTitle");
-			String bContent = rs.getString("bContent");
-			
-			
-			vo = new BoardVO(bId, bName, bTitle, bContent, null);
-			
-		}
-		
-		
-	}catch(Exception e) {
-		e.printStackTrace();
-	}finally {
-		
-		rs.close();
-		pstmt.close();
-		con.close();
-		
-	}
-	
-	return vo;
-}
-//수정	
-public int modify(String strID, String bName, String bTitle, String bContent) throws SQLException {
-		int result = 0;
-		
-		String query = "update board set bName = ?, "
-				+ "bTitle = ?, bContent = ? where bId = ?";
-		
-		try {
-			
-			con = ds.getConnection();
-			pstmt = con.prepareStatement(query);
-			
-			pstmt.setString(1, bName);
-			pstmt.setString(2, bTitle);
-			pstmt.setString(3, bContent);
-			pstmt.setInt(4, Integer.parseInt(strID));
-			
-			result = pstmt.executeUpdate();
-			
-		}catch(Exception e) {
-			e.printStackTrace();
-		}finally {
-			
-			pstmt.close();
-			con.close();
-			
-		}
-		
-		
-		return result;
-	}
-//삭제
-public int delete(String strID) throws SQLException {
-	int result = 0;
-	
-	String query = "delete from board where bId = ?";
-	
-	try {
-		
-		con = ds.getConnection();
-		pstmt = con.prepareStatement(query);
-		pstmt.setInt(1, Integer.parseInt(strID));
-		
-		result = pstmt.executeUpdate();
-		
-	}catch(Exception e) {
-		e.printStackTrace();
-	}finally {
-		
-		pstmt.close();
-		con.close();
-		
-	}
-	
-	return result;
-}
+   
+	public BoardDAO() {
+        try {
+            Context context = new InitialContext();
+            ds = (DataSource) context.lookup("java:comp/env/jdbc/oracle");
+        } catch (NamingException e) {
+            e.printStackTrace();
+        }
+    }
 
+    public ArrayList<BoardVO> boardList() {
+        ArrayList<BoardVO> list = new ArrayList<BoardVO>();
+        String query = "SELECT * FROM board ORDER BY bId DESC";
 
+        try (Connection con = ds.getConnection();
+             PreparedStatement pstmt = con.prepareStatement(query);
+             ResultSet rs = pstmt.executeQuery()) {
 
+            while (rs.next()) {
+                int bId = rs.getInt("bId");
+                String bName = rs.getString("bName");
+                String bTitle = rs.getString("bTitle");
+                String bContent = rs.getString("bContent");
+                list.add(new BoardVO(bId, bName, bTitle, bContent, null));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return list;
+    }
+
+    public int write(String bName, String bTitle, String bContent) {
+        int result = 0;
+        String query = "INSERT INTO board (bId, bName, bTitle, bContent) VALUES (board_seq.nextval, ?, ?, ?)";
+
+        try (Connection con = ds.getConnection();
+             PreparedStatement pstmt = con.prepareStatement(query)) {
+
+            pstmt.setString(1, bName);
+            pstmt.setString(2, bTitle);
+            pstmt.setString(3, bContent);
+
+            result = pstmt.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return result;
+    }
+
+    public BoardVO contentView(String strID) {
+        BoardVO vo = null;
+        String query = "SELECT * FROM board WHERE bId = ?";
+
+        try (Connection con = ds.getConnection();
+             PreparedStatement pstmt = con.prepareStatement(query)) {
+
+            pstmt.setInt(1, Integer.parseInt(strID));
+            try (ResultSet rs = pstmt.executeQuery()) {
+                if (rs.next()) {
+                    int bId = rs.getInt("bId");
+                    String bName = rs.getString("bName");
+                    String bTitle = rs.getString("bTitle");
+                    String bContent = rs.getString("bContent");
+                    vo = new BoardVO(bId, bName, bTitle, bContent, null);
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return vo;
+    }
+
+    public int modify(String strID, String bName, String bTitle, String bContent) {
+        int result = 0;
+        String query = "UPDATE board SET bName = ?, bTitle = ?, bContent = ? WHERE bId = ?";
+
+        try (Connection con = ds.getConnection();
+             PreparedStatement pstmt = con.prepareStatement(query)) {
+
+            pstmt.setString(1, bName);
+            pstmt.setString(2, bTitle);
+            pstmt.setString(3, bContent);
+            pstmt.setInt(4, Integer.parseInt(strID));
+
+            result = pstmt.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return result;
+    }
+
+    public int delete(String strID) {
+        int result = 0;
+        String query = "DELETE FROM board WHERE bId = ?";
+
+        try (Connection con = ds.getConnection();
+             PreparedStatement pstmt = con.prepareStatement(query)) {
+
+            pstmt.setInt(1, Integer.parseInt(strID));
+            result = pstmt.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return result;
+    }
 }
