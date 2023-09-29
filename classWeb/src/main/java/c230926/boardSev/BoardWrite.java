@@ -43,7 +43,7 @@ public class BoardWrite extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 //		response.getWriter().append("Served at: ").append(request.getContextPath());
-			
+			//게시물 작성
 		String html = "<html>";
 	html += "<head>";  
 	html += "<meta charset='UTF-8' />";
