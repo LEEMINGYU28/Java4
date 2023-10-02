@@ -1,3 +1,17 @@
+package c230926.boardSev;
+
+import java.io.IOException;
+import java.util.ArrayList;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import c230926.board.BoardDAO;
+import c230926.board.BoardDTO;
+import c230926.board.BoardVO;
+
 @WebServlet("/Edit")
 public class EditboardWrite extends HttpServlet {
     private static final long serialVersionUID = 1L;

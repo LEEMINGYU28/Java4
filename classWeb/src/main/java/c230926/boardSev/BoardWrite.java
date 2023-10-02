@@ -84,18 +84,18 @@ public class BoardWrite extends HttpServlet {
         String bTitle = request.getParameter("bTitle");
         String bContent = request.getParameter("bContent");
 
-        // 게시물을 데이터베이스에 작성
+        
         int result = boardDAO.write(bName, bTitle, bContent);
         
-        // 응답 설정
+       
         response.setContentType("text/html; charset=UTF-8");
         PrintWriter out = response.getWriter();
 
         if (result > 0) {
-            // 게시물 작성 성공 시, 성공 메시지 출력
+            
             response.getWriter().println("게시물 작성 성공");
         } else {
-            // 게시물 작성 실패 시, 에러 메시지 출력
+            
             response.getWriter().println("게시물 작성 실패");
         }
        
