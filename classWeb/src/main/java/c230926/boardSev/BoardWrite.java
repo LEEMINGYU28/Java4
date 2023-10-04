@@ -44,6 +44,9 @@ public class BoardWrite extends HttpServlet {
 		// TODO Auto-generated method stub
 //		response.getWriter().append("Served at: ").append(request.getContextPath());
 			//게시물 작성
+		response.setCharacterEncoding("UTF-8");
+		response.setContentType("text/html; charset=UTF-8");
+		
 		String html = "<html>";
 	html += "<head>";  
 	html += "<meta charset='UTF-8' />";
@@ -53,7 +56,7 @@ public class BoardWrite extends HttpServlet {
 	html += "</head>";
 	html += "<body>";
 	html += "<h1>게시물 작성</h1>";
-	html += "<form action='BoardWrite' method='post'>";
+	html += "<form action='BoardWrite' method='post' accept-charset='UTF-8'>";
 	html += "<label for='bName'>글쓴이";
 	html += "</label>";
 	html += "<input type='text' id='bName' name='bName'><br>";
@@ -68,8 +71,7 @@ public class BoardWrite extends HttpServlet {
 	html += "</form>";
 	html += "</body>";
 	html += "</html>";
-	
-	response.setCharacterEncoding("UTF-8");
+		
 	response.getWriter().append(html);
 	
 	}
@@ -80,6 +82,8 @@ public class BoardWrite extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		//		doGet(request, response);
+		 request.setCharacterEncoding("UTF-8"); 
+		
 		String bName = request.getParameter("bName");
         String bTitle = request.getParameter("bTitle");
         String bContent = request.getParameter("bContent");
@@ -94,9 +98,11 @@ public class BoardWrite extends HttpServlet {
         if (result > 0) {
             
             response.getWriter().println("게시물 작성 성공");
+            out.println("<a href='Board'>메인 페이지로 돌아가기</a>");
         } else {
             
             response.getWriter().println("게시물 작성 실패");
+            out.println("<a href='BoardWrite'>게시물 작성 다시 시도</a>");
         }
        
         out.close();

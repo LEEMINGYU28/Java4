@@ -1,6 +1,7 @@
 package c230926.boardSev;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -34,7 +35,7 @@ public class DeleteBoard extends HttpServlet {
                 int bId = Integer.parseInt(bIdParam);
 
                
-                int result = boardDAO.deleteBoard(bId);
+                int result = boardDAO.delete(bId);
 
                 response.setContentType("text/html; charset=UTF-8");
                 PrintWriter out = response.getWriter();
@@ -42,17 +43,19 @@ public class DeleteBoard extends HttpServlet {
                 if (result > 0) {
                     
                     out.println("게시물 삭제 성공");
+                    out.println("<a href='Board'>메인 페이지로 돌아가기</a>");
                 } else {
                     
                 	out.println("게시물 삭제 실패");
+                	out.println("<a href='Board'>메인 페이지로 돌아가기</a>");
                 }
 
                 out.close();
             } catch (Exception e) {
-                out.close();
+                
             }
         } else {
-            out.close();
+            
         }
     }
 }

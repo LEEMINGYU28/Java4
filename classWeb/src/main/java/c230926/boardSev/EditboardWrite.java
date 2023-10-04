@@ -1,7 +1,10 @@
 package c230926.boardSev;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
+
+import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -46,7 +49,8 @@ public class EditboardWrite extends HttpServlet {
                     html += "</head>";
                     html += "<body>";
                     html += "<h1>게시물 수정</h1>";
-                    html += "<form action='EditboardWrite' method='post'>";
+                    html +=
+                    		"<form action='BoardWrite' method='post' accept-charset='UTF-8'>";
                     html += "<input type='hidden' name='bId' value='" + bId + "'>"; // 수정할 게시물의 ID를 숨겨진 필드로 전달
                     html += "<label for='bName'>글쓴이</label>";
                     html += "<input type='text' id='bName' name='bName' value='" + board.getbName() + "'><br>";
@@ -78,24 +82,24 @@ public class EditboardWrite extends HttpServlet {
 
         request.setCharacterEncoding("UTF-8");
         
-        int bId = Integer.parseInt(request.getParameter("bId"));
-        String bName = request.getParameter("bName");
+        String bId = request.getParameter("bId");
         String bTitle = request.getParameter("bTitle");
         String bContent = request.getParameter("bContent");
-        
-        int result = boardDAO.updateBoard(bId, bName, bTitle, bContent);
-        
-        response.setContentType("text/html; charset=UTF-8");
-        PrintWriter out = response.getWriter();
 
-        if (result > 0) {
-    
-            out.println("게시물 수정 성공");
+        // 게시물 수정을 위해 BoardDAO를 사용합니다.
+        BoardDAO dao = new BoardDAO();
+
+        // 수정된 내용을 데이터베이스에 반영합니다.
+        boolean updateSuccess = dao.updateBoard(bId, bTitle, bContent);
+
+        if (updateSuccess) {
+            // 수정이 성공했을 경우 메인 게시판 페이지로 리다이렉트합니다.
+            response.sendRedirect("Board");
         } else {
-
-            out.println("게시물 수정 실패");
+            // 수정 실패 메시지를 출력하거나 다른 처리를 수행할 수 있습니다.
+            response.setContentType("text/html; charset=UTF-8");
+            response.getWriter().println("게시물 수정 실패");
         }
-
-        out.close();
+    
     }
 }

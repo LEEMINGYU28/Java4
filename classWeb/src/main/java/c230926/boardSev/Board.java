@@ -36,10 +36,11 @@ public class Board extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 //		response.getWriter().append("Served at: ").append(request.getContextPath());
-    	
-    	ArrayList<BoardVO> boardList = dao.boardList();
-    	
+    	response.setCharacterEncoding("UTF-8");
+    	response.setContentType("text/html; charset=UTF-8");
+    	ArrayList<BoardVO> boardList = dao.boardList();	
 	String html = "<html>";
+	
 	html += "<head>";
 	html += "<meta charset='UTF-8' />";
 	html += "<title>";
@@ -54,24 +55,33 @@ public class Board extends HttpServlet {
 	html += "<hr/>";
 	html += "<ul>";
 	 for (BoardVO board : boardList) {
-    html += "<li>";
+	html += "<li>";
     html += "<table border='1'>"; 
-    html += "<th><h2>번호: " + board.getbId() + "</h2></th>";
-    html += "<th><h2>제목: " + board.getbTitle() + "</h2></th>";
-    html += "<th><h2>글쓴이:<a href='boardWrite ?bId="+ board.getbName() + "</h2></th>";
-    html += "<h2>내용: " + board.getbContent() + "<br></h2>";
-    html += "<a href='EditboardWrite?bId=" + board.getbId() + "'>수정</a> ";
-    html += "<a href='DeleteBoard?bId=" + board.getbId() + "'>삭제</a>";
+    html += "<th><h2 onclick='toggleContent(" + board.getbId() + ")'>번호: " + board.getbId() + "</h2></th>";
+    html += "<th><h2 onclick='toggleContent(" + board.getbId() + ")'>제목: " + board.getbTitle() + "</h2></th>";
+    html += "<th><h2>글쓴이: " + board.getbName() + "</h2></th>";
+    html += "<tr><td colspan='3'><div id='content_" + board.getbId() + "' style='display: none;'>" + board.getbContent() + "</div></td></tr>";
+    html += "<th><a href='Edit?bId=" + board.getbId() + "'>수정</a></th> ";
+    html += "<th><a href='DeleteBoard?bId=" + board.getbId() + "'>삭제</a></th>";
     html += "</table>";
-    html += "</li>";
-     }
+    html += "</li>";   
+	 }
 	html += "</ul>";
+	html += "<script>";
+	html += "function toggleContent(bId) {";
+	html += "    var contentElement = document.getElementById('content_' + bId);";
+	html += "    if (contentElement.style.display === 'none' || contentElement.style.display === '') {";
+	html += "        contentElement.style.display = 'block';";
+	html += "    } else {";
+	html += "        contentElement.style.display = 'none';";
+	html += "    }";
+	html += "}";
+	html += "</script>";
 	html += "<a href='./BoardWrite'>"
 			+ "<button>글쓰기</button>"
 			+ "</a>";
 	html += "</body>";
 	html += "</html>";
-	response.setCharacterEncoding("UTF-8");
 	response.getWriter().append(html);
 	}
 
