@@ -10,7 +10,7 @@ public class Suspect{
 	Scanner scanner = new Scanner(System.in);
 	
 	protected String[] information = new String[] //투숙객 설명
-			{"번방 남자는 피해자와 오래된 친구였으며, 어린시절"
+			{"1번방 남자는 피해자와 오래된 친구였으며, 어린시절"
 			+ "많은 추억을 쌓았다고 한다.",//0
 			"번방에 들어오자 2번방에는 밝은 미소를 띤 투숙객B가 있었다.",//1
 			"번방 안에는 예술적인 분위기를 풍기는 투숙객 C가 있었다. ",//2
