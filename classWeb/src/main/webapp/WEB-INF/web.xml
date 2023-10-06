@@ -3,10 +3,13 @@
 	xmlns="http://xmlns.jcp.org/xml/ns/javaee"
 	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
 	id="WebApp_ID" version="4.0">
-	<!-- <display-name>classWeb</display-name> <welcome-file-list> <welcome-file>index.html</welcome-file> 
+	<!-- <display-name>classWeb</display-name> 
+		<welcome-file-list> <welcome-file>index.html</welcome-file> 
 		<welcome-file>index.jsp</welcome-file> <welcome-file>index.htm</welcome-file> 
 		<welcome-file>default.html</welcome-file> <welcome-file>default.jsp</welcome-file> 
 		<welcome-file>default.htm</welcome-file> </welcome-file-list> -->
+		<!-- 라우터 주소 설정해주기 -->
+		
 	<servlet>
 		<servlet-name>aa</servlet-name>
 		<servlet-class>servletTest.FirstServ</servlet-class>
@@ -28,4 +31,12 @@
 		<param-name>test_xml</param-name>
 		<param-value>xml에 추가된 데이터이다.</param-value>
 	</context-param>
+	<error-page>
+		<error-code>404</error-code>
+		<location>/c231006/errorpage1.jsp</location>
+	</error-page>
+	<error-page>
+		<error-code>500</error-code>
+		<location>/c231006/errorpage2.jsp</location>
+	</error-page>
 </web-app>

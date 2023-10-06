@@ -14,7 +14,8 @@
 			session = 세션 사용 여부, true(기본값)
 			pageEncoding = 페이지에서 사용하는 언어 형식
 			import = 다른 패키지에서 클래스 등을 가져옴
-			errorPage, isErrorPage
+			errorPage, isErrorPage(is가 앞에 붙으면 true냐, false인가)
+			
 		인클루드 디렉티브 태그
 		태그라이브 디렉티브 태그
 --%>

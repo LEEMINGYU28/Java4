@@ -4,9 +4,9 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>페이지없음</title>
 </head>
 <body>
-
+	<h1>돌아가라</h1>
 </body>
 </html>
