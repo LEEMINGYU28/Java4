@@ -1,4 +1,6 @@
 @charset "UTF-8";
+
 body{
-	background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ1GGBC9zq6xM-QjOfnrZSkX1sLzhxkA0jazQ&usqp=CAU');
+	background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQQMpqpWe1cm_01JjINVgUc-C6gUZm16Zhgrg&usqp=CAU');
+	background-size: cover;
 }

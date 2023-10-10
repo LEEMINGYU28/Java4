@@ -4,16 +4,26 @@ body{
 	background-image: url('https://assets.clip-studio.com/ko-kr/description/1829174/img/d22935fd39-e447-bda0-1593-9a823a3298.jpg');
 	background-size: cover;
 };
-button.room2{
- position:  flex;
+
+.room2{
+ position:absolute;
  width: 80px;
  height: 50px;
  top: 500px;
- left: 250px;
- 
+ left: 150px;
 };
 .room3{
- position:  flex;
- left: 1000px;
+ position:absolute;
+ width: 80px;
+ height: 50px;
+ bottom: 500px;
+ right: 500px;
+ display: block;
 };
-
+.room4{
+ position:absolute;
+ width: 80px;
+ height: 50px;
+ top: 1000px;
+ left: 800px;
+};

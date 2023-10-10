@@ -10,8 +10,13 @@
 <title>복도</title>
 </head>
 <body>
-	<button type='button' class='room2'>2번방</button>
-	<button>3번방</button>
-	
+	<div>
+		<button class='room2' onClick="location.href='room2.jsp'">2번방</button>
+		<button class='room3' onClick="location.href='room3.jsp'">3번방</button>	
+	</div>
+	<div>
+	<button class='room4' onClick="location.href='room4.jsp'">4번방</button>
+	<button class='room5' onClick="location.href='room5.jsp'">5번방</button>
+	</div>
 </body>
 </html>
