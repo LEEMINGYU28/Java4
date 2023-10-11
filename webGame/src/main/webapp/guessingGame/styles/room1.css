@@ -1,11 +1,12 @@
 @charset "UTF-8";
 body{
+	margin: 0;
+}
+.root{
 	background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ1GGBC9zq6xM-QjOfnrZSkX1sLzhxkA0jazQ&usqp=CAU');
-	background-size: cover;
-};
+	background-size: contain;
+	background-repeat: no-repeat;
+	width: 1045px;
+	height: 00px;
+}
 
-.bed.bed_btn{
-    top: 500px;
-    position: absolute;
-    left: 500px;
-};

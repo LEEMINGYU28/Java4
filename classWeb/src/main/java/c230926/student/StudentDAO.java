@@ -28,14 +28,8 @@ public class StudentDAO {
 			PreparedStatement stmt = con.prepareStatement(query);
 			ResultSet rs = stmt.executeQuery();
 			while (rs.next()) {
-				StudentVO temp = new StudentVO(
-						rs.getInt("ids"), 
-						rs.getString("name"), 
-						rs.getString("student_id"),
-						rs.getString("student_pw"), 
-						rs.getInt("age"), 
-						rs.getString("git_address")
-							);
+				StudentVO temp = new StudentVO(rs.getInt("ids"), rs.getString("name"), rs.getString("student_id"),
+						rs.getString("student_pw"), rs.getInt("age"), rs.getString("git_address"));
 				list.add(temp);
 			}
 			rs.close();
@@ -59,14 +53,8 @@ public class StudentDAO {
 			ResultSet rs = pstmt.executeQuery();
 
 			if (rs.next()) {
-				temp = new StudentVO(
-						rs.getInt("ids"), 
-						rs.getString("name"), 
-						rs.getString("student_id"),
-						rs.getString("student_pw"), 
-						rs.getInt("age"), 
-						rs.getString("git_address")
-						);
+				temp = new StudentVO(rs.getInt("ids"), rs.getString("name"), rs.getString("student_id"),
+						rs.getString("student_pw"), rs.getInt("age"), rs.getString("git_address"));
 
 				rs.close();
 				pstmt.close();
@@ -79,6 +67,7 @@ public class StudentDAO {
 		return temp;
 
 	}
+
 	public StudentVO getStudent(int Id) {
 		StudentVO temp = null;
 		try {
@@ -90,14 +79,8 @@ public class StudentDAO {
 			ResultSet rs = pstmt.executeQuery();
 
 			if (rs.next()) {
-				temp = new StudentVO(
-						rs.getInt("ids"), 
-						rs.getString("name"), 
-						rs.getString("student_id"),
-						rs.getString("student_pw"), 
-						rs.getInt("age"), 
-						rs.getString("git_address")
-						);
+				temp = new StudentVO(rs.getInt("ids"), rs.getString("name"), rs.getString("student_id"),
+						rs.getString("student_pw"), rs.getInt("age"), rs.getString("git_address"));
 
 				rs.close();
 				pstmt.close();
@@ -109,7 +92,7 @@ public class StudentDAO {
 		}
 		return temp;
 
-	}	
+	}
 
 	private void connect() throws Exception {
 		/*

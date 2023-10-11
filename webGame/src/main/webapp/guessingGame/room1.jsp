@@ -8,10 +8,16 @@
 <title>1번방</title>
 </head>
 <body>
-	<div class=room_Btn>
-		<button class=bed_btn>침대</button>
-		<button class=table>책상</button>
-		<button class=photo>액자</button>
+	<div class="root">
+		<div class=bed>
+			<button>침대</button>
+		</div>
+		<div class=table>
+			<button>책상</button>
+		</div>
+		<div class=photo>
+			<button>액자</button>
+		</div>
 	</div>
 </body>
 </html>
