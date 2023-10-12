@@ -1,12 +1,52 @@
 @charset "UTF-8";
-body{
+
+body {
 	margin: 0;
 }
-.root{
+
+.root {
+	width: 100%;
+	height: 100vh;
 	background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ1GGBC9zq6xM-QjOfnrZSkX1sLzhxkA0jazQ&usqp=CAU');
-	background-size: contain;
+	background-size: 100% 100%;
 	background-repeat: no-repeat;
-	width: 1045px;
-	height: 00px;
+	position: relative;
 }
 
+.bed {
+	position: absolute;
+	width: 64%;
+	height: 48%;
+	left: 12%;
+	top: 47%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.table {
+	position: absolute;
+	width: 17%;
+	height: 28%;
+	left: 78%;
+	top: 63%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.photo {
+	position: absolute;
+	width: 26%;
+	height: 17%;
+	left: 49%;
+	top: 8%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+
+button {
+	font-size: 35px;
+}

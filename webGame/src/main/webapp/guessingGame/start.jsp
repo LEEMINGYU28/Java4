@@ -10,9 +10,9 @@
 </head>
 <body>
 	<div class="root">
-			<div class="start">
-			<button>스토리보기</button>
-			<button onClick="location.href='start2.jsp'">게임시작</button>
+		<div class="start">
+			<button class="story">스토리</button>
+			<button class="game" onClick="location.href='start2.jsp'">게임시작</button>
 		</div>
 	</div>
 </body>

@@ -1,0 +1,22 @@
+@charset "UTF-8";
+
+.card {
+	position: relative;
+	border: 1px solid black;
+	left: 10%;
+	width: 11%;
+}
+
+.card-head {
+	height: 50px;
+	background-color: thistle;
+}
+
+.card-main {
+	height: 100px;
+}
+
+.card-footer {
+	height: 50px;
+	background-color: thistle;
+}
