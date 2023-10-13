@@ -1,11 +1,8 @@
 @charset "UTF-8";
 
-body {
-	margin: 0;
-}
 
 .root {
-	background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQFtc8goG_nWTPs2JiGvIUvg8Vk1q0i4ijw9Q&usqp=CAU');
+	background-image: url('../imgs/room3.jpg');
 	background-size: 100% 100%;
 	width: 100%;
 	height: 100vh;
@@ -14,10 +11,10 @@ body {
 
 .bed {
 	position: absolute;
-    width: 78%;
-    height: 46%;
-    left: 10%;
-    top: 54%;
+	width: 78%;
+	height: 46%;
+	left: 10%;
+	top: 54%;
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -25,10 +22,10 @@ body {
 
 .table {
 	position: absolute;
-    width: 16%;
-    height: 16%;
-    right: 1%;
-    top: 50%;
+	width: 16%;
+	height: 16%;
+	right: 1%;
+	top: 50%;
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -36,10 +33,10 @@ body {
 
 .photo {
 	position: absolute;
-    width: 28%;
-    height: 32%;
-    left: 19%;
-    top: 1%;
+	width: 28%;
+	height: 32%;
+	left: 19%;
+	top: 1%;
 	display: flex;
 	justify-content: center;
 	align-items: center;

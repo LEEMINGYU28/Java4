@@ -1,22 +1,180 @@
 @charset "UTF-8";
 
-.card {
+body {
+	margin: 0;
+}
+
+.w-btn {
 	position: relative;
+	border: none;
+	display: inline-block;
+	padding: 15px 30px;
+	border-radius: 15px;
+	font-family: "paybooc-Light", sans-serif;
+	box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+	text-decoration: none;
+	font-weight: 600;
+	transition: 0.25s;
+}
+
+.w-btn-A {
+	background-color: #77af9c;
+	color: #d7fff1;
+}
+
+.w-btn-B {
+	background-color: rgb(255, 0, 128);
+	color: #d7fff1;
+}
+
+.w-btn-C {
+	background-color: rgb(128, 128, 192);
+	color: #d7fff1;
+}
+
+.w-btn-D {
+	background-color: rgb(128, 64, 64);
+	color: #d7fff1;
+}
+
+
+.card {
+	background-image: url("../imgs/criminal.jpg");
+	background-size: 100% 100%;
+	width: 100%;
+	height: 100vh;
+	position: relative;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+
+.A-card {
+	margin: 50px;
+	position: relative;
+	width: 200px;
 	border: 1px solid black;
-	left: 10%;
-	width: 11%;
+	flex-direction: column;
 }
 
-.card-head {
+.A-head {
 	height: 50px;
 	background-color: thistle;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
 
-.card-main {
+.A-main {
+	background: white;
 	height: 100px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
 
-.card-footer {
+.A-choose {
 	height: 50px;
 	background-color: thistle;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.B-card {
+	margin: 50px;
+	position: relative;
+	width: 200px;
+	border: 1px solid black;
+	flex-direction: column;
+
+}
+
+.B-head {
+	height: 50px;
+	background-color: antiquewhite;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.B-main {
+	background: white;
+	height: 100px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.B-choose {
+	height: 50px;
+	background-color: antiquewhite;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.C-card {
+	margin: 50px;
+	position: relative;
+	width: 200px;
+	border: 1px solid black;
+	flex-direction: column;
+}
+
+.C-head {
+	height: 50px;
+	background-color: aquamarine;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.C-main {
+	background: white;
+	height: 100px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.C-choose {
+	height: 50px;
+	background-color: aquamarine;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.D-card {
+	margin: 50px;
+	position: relative;
+	width: 200px;
+	border: 1px solid black;
+	flex-direction: column;
+}
+
+.D-head {
+	height: 50px;
+	background-color: coral;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.D-main {
+	background: white;
+	height: 100px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.D-choose {
+	height: 50px;
+	background-color: coral;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }

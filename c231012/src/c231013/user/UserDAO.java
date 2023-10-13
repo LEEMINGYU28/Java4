@@ -1,4 +1,4 @@
-package user;
+package c231013.user;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -6,21 +6,27 @@ import java.sql.ResultSet;
 
 import javax.sql.DataSource;
 
-import connectionMaker.*;
+import connectionMaker.ConnectionMaker;
+import factory.DAOFactory;
+import user.UserBean;
 
-//DB와 통신하여 유저에 대한 데이터를 관리한다.
 public class UserDAO {
-
 	private ConnectionMaker maker;
+	private DataSource dataSource;
 	
-	
+
 	public UserDAO(ConnectionMaker maker) {
 		this.maker = maker;
+//		new DAOFactory().userDAO();
+	}
+	public UserDAO(DataSource dataSource) {
+		this.dataSource = dataSource;
 	}
 
-	public void add(UserBean user) throws Exception {
+	public void add(UserInterface user) throws Exception {
 
-		Connection conn = maker.makeConnection();
+//		Connection conn = maker.makeConnection();
+		Connection conn = dataSource.getConnection();
 		String query = "insert into users (name, user_id,password) values (?,?,?)";
 		PreparedStatement pstmt = conn.prepareStatement(query);
 
@@ -34,7 +40,8 @@ public class UserDAO {
 	}
 
 	public UserBean get(String userId) throws Exception {
-		Connection conn = maker.makeConnection();
+//		Connection conn = maker.makeConnection();
+		Connection conn = dataSource.getConnection();
 
 		String query = "select * from users where user_id=?";
 		PreparedStatement pstmt = conn.prepareStatement(query);
@@ -52,8 +59,9 @@ public class UserDAO {
 			user.setPassword(rs.getString("password"));
 		}
 
+		rs.close();
 		pstmt.close();
 		conn.close();
-		return user;
+		return (UserBean) user;
 	}
 }

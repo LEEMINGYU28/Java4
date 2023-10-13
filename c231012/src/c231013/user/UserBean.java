@@ -1,10 +1,6 @@
-package user;
+package c231013.user;
 
-import c231013.user.UserInterface;
-
-// 유저에 대한 데이터를 메모리 내에 저장하는 클래스
-public class UserBean{
-
+public class UserBean implements UserInterface {
 	private int id;
 	private String name;
 	private String userId;
@@ -44,5 +40,4 @@ public class UserBean{
 	public String getPassword() {
 		return password;
 	}
-
 }
