@@ -22,14 +22,14 @@ public class Test {
 //		UserDAO dao3 = new DAOFactory().userDAO();
 //		
 		UserBean user = new UserBean();
-		user.setName("임현규");
-		user.setUserId("hk");
-		user.setPassword("486");
+		user.setName("임주한");
+		user.setUserId("ljh");
+		user.setPassword("1541");
 		dao.add(user);
-
+		
 		System.out.println("추가 성공");
-
-		UserInterface createdUser = (UserInterface) dao.get("hk");
+		
+		UserInterface createdUser = dao.get("hk");
 		System.out.println(createdUser.getId());
 		System.out.println(createdUser.getName());
 		System.out.println(createdUser.getUserId());
