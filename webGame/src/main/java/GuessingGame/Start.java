@@ -9,6 +9,8 @@ public class Start extends Room {
 	Room room = new Room();
 	Suspect suspect = new Suspect();
 
+	
+	
 	protected void start() {
 		System.out.println("\n스토리\n" + scenario.story[0] + "\n 호텔 입장 >입력");
 

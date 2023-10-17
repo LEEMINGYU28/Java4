@@ -5,6 +5,7 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 
 import c231016.factory.*;
 
+
 public class Test {
 
 	public static void main(String[] args) throws Exception {
@@ -13,9 +14,9 @@ public class Test {
 		JdbcContextUserDAO dao = context.getBean("jdbcContextUserDAO", JdbcContextUserDAO.class);
 
 		UserBean user = new UserBean();
-		user.setName("임주한");
-		user.setUserId("ljh");
-		user.setPassword("1541");
+		user.setName("김남균");
+		user.setUserId("ㅎㅇㅎㅇ");
+		user.setPassword("6546");
 		dao.add(user);
 
 		System.out.println("추가 성공");

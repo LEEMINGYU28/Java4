@@ -1,4 +1,4 @@
-package c231016.user;
+package c231017.user;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -20,8 +20,6 @@ public class UsedSpringUserDAO {
 	}
 
 	public UserInterface get(String userId) throws SQLException {
-
-//		jdbcTemplate.queryForList("qeury",UserBean.class,"? 1","? 2");
 
 		UserInterface user = jdbcTemplate.queryForObject("select * from users where user_id=?", new Object[] { userId },
 				new RowMapper<UserBean>() {
