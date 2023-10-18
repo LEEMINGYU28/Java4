@@ -1,0 +1,17 @@
+@charset "UTF-8";
+
+body{
+	margin: 0;
+}
+
+#output{
+	position: absolute;
+	float: left;
+	width: 70%;
+	height: 50px;
+	top: 50px;
+}
+#buttons{
+	      float: left;
+            width: 30%;
+}

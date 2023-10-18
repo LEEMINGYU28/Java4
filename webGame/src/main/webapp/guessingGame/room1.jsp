@@ -10,14 +10,16 @@
 </head>
 <body>
 	<div class="root">
-		<input id="check-btn" type="checkbox" /> <label class="btns"
-			for="check-btn">인벤토리</label>
-		<ul class="menubars">
-			<li>1</li>
-			<li>2</li>
-			<li>3</li>
-			<li>4</li>
-		</ul>
+		<div id="invenbtn">
+			<input id="check-btn" type="checkbox" /> <label class="btns"
+				for="check-btn">인벤토리</label>
+			<ul class="menubars">
+				<li>1</li>
+				<li>2</li>
+				<li>3</li>
+				<li>4</li>
+			</ul>
+		</div>
 		<div class="bed">
 			<button class="btn">침대</button>
 		</div>

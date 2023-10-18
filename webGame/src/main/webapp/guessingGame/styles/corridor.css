@@ -23,12 +23,12 @@ body {
 }
 
 .menubars {
+	background-color: #ffffffad;
 	display: none;
 	border: 1px solid black;
-	width: 4%;
+	width: 98px;
 	position: absolute;
-	right: 17px;
-	top: 36%;
+	top: 53%;
 }
 
 .btns {
@@ -37,13 +37,14 @@ body {
 	border: none;
 	border-radius: 10px;
 	position: absolute;
-	left: 92%;
-	top: 33%;
-	width: 7%;
-	height: 5%;
+/*	left: 92%;
+	top: 33%;*/
+	width: 139px;
+	height: 50px;
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	cursor: pointer;
 }
 
 .room2 {
@@ -123,4 +124,14 @@ button {
 	color: #1e6b7b;
 	transform: scale(1.2);
 	cursor: pointer;
+}
+#invenbtn {
+	width: 11%;
+	height: 10%;
+	position: absolute;
+	right: 0%;
+	top: 31%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 }

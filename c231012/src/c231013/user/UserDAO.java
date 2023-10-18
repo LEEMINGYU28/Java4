@@ -6,7 +6,7 @@ import java.sql.ResultSet;
 
 import javax.sql.DataSource;
 
-import connectionMaker.ConnectionMaker;
+import c231012.connectionMaker.ConnectionMaker;
 
 public class UserDAO {
 	private ConnectionMaker maker;

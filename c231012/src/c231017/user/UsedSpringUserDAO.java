@@ -14,12 +14,12 @@ public class UsedSpringUserDAO {
 		jdbcTemplate = new JdbcTemplate(dataSource);
 	}
 
-	public void add(UserInterface user) throws SQLException {
+	public void add(UserInterface user){
 		jdbcTemplate.update("insert into users (name, user_id, password) values (?, ?, ?)", user.getName(),
 				user.getUserId(), user.getPassword());
 	}
 
-	public UserInterface get(String userId) throws SQLException {
+	public UserInterface get(String userId){
 
 		UserInterface user = jdbcTemplate.queryForObject("select * from users where user_id=?", new Object[] { userId },
 				new RowMapper<UserBean>() {

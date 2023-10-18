@@ -1,8 +1,8 @@
-package singleton;
+package c231012.singleton;
 
-import connectionMaker.ConnectionMaker;
-import connectionMaker.OracleCM;
-import user.UserBean;
+import c231012.connectionMaker.ConnectionMaker;
+import c231012.connectionMaker.OracleCM;
+import c231012.user.UserBean;
 
 public class Test {
 

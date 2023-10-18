@@ -1,4 +1,4 @@
-package gameSev;
+package gameServ;
 
 public class ScenarioVO {
 
@@ -7,7 +7,6 @@ public class ScenarioVO {
 	private String content;
 
 	public ScenarioVO(int id, String category,String content) {
-		super();
 		this.id = id;
 		this.category = category;
 		this.content = content;

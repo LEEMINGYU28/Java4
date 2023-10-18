@@ -30,6 +30,7 @@ body {
 	border: none;
 	border-radius: 10px;
 	font-size: 28px;
+	cursor: pointer;
 }
 
 #check-btn {
@@ -41,12 +42,12 @@ body {
 }
 
 .menubars {
+	background-color: #ffffffad;
 	display: none;
 	border: 1px solid black;
-	width: 4%;
+	width: 98px;
 	position: absolute;
-	right: 17px;
-	top: 36%;
+	top: 53%;
 }
 
 .btns {
@@ -55,11 +56,22 @@ body {
 	border: none;
 	border-radius: 10px;
 	position: absolute;
-	left: 92%;
-	top: 33%;
-	width: 7%;
-	height: 5%;
+/*	left: 92%;
+	top: 33%;*/
+	width: 139px;
+	height: 50px;
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	cursor: pointer;
+}
+#invenbtn {
+	width: 12%;
+	height: 24%;
+	position: absolute;
+	right: 0%;
+	top: 26%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 }

@@ -1,9 +1,9 @@
-package user;
+package c231012.user;
 
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
-import factory.*;
+import c231012.factory.*;
 
 //User의 DAO를 테스트
 public class Test {

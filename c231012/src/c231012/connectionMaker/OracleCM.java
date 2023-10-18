@@ -1,8 +1,9 @@
-package connectionMaker;
+package c231012.connectionMaker;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
-import connectionMaker.*;
+
+import c231012.connectionMaker.*;
 
 // Oracle DB와 통신하는 Connection 을 생성
 public class OracleCM implements ConnectionMaker {

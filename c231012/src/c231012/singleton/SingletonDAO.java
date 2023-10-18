@@ -1,21 +1,31 @@
-package user;
+package c231012.singleton;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
-import javax.sql.DataSource;
+import c231012.connectionMaker.ConnectionMaker;
+import c231012.user.UserBean;
 
-import connectionMaker.*;
-
-//DB와 통신하여 유저에 대한 데이터를 관리한다.
-public class UserDAO {
+public class SingletonDAO {
 
 	private ConnectionMaker maker;
-	
-	
-	public UserDAO(ConnectionMaker maker) {
+
+	public static SingletonDAO INSTANCE;
+
+	//싱글톤을 구현할때 private로 준다.
+	public SingletonDAO(ConnectionMaker maker) {
 		this.maker = maker;
+	}
+
+	public static SingletonDAO getInstance() {
+		return INSTANCE;
+	}
+
+	public static SingletonDAO getInstance(ConnectionMaker maker) {
+		if (INSTANCE == null)
+			INSTANCE = new SingletonDAO(maker);
+		return INSTANCE;
 	}
 
 	public void add(UserBean user) throws Exception {

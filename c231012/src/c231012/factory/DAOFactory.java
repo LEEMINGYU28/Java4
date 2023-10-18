@@ -1,9 +1,9 @@
-package factory;
+package c231012.factory;
 
 import org.springframework.context.annotation.Bean;
 
-import connectionMaker.*;
-import user.*;
+import c231012.connectionMaker.*;
+import c231012.user.*;
 
 // 전체적인 모든 DAO를 관리(생성 삭제 등등)
 public class DAOFactory {
