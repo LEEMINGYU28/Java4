@@ -12,7 +12,8 @@
 	<div class="root">
 		<div id="output"></div>
 			<button id="boanbtn">경비원</button>
-			<button id="nextbtn">다음</button>
+			<a type="button" id="nextbtn"></a>
+			<a type="button" id="prevbtn"></a>
 		<div class="next">
 			<button id="room1" onClick="location.href='room1.jsp'">1번방 입장</button>
 		</div>

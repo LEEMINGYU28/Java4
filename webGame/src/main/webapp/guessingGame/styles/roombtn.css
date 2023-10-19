@@ -41,7 +41,15 @@ body {
 	display: block;
 }
 
-.menubars {
+#inventoryList {
+	background-color: #ffffffad;
+	display: none;
+	border: 1px solid black;
+	width: 98px;
+	position: absolute;
+	top: 53%;
+}
+#evidenceList {
 	background-color: #ffffffad;
 	display: none;
 	border: 1px solid black;

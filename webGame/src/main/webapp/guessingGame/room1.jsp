@@ -5,6 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>1번방</title>
+<script type="text/javascript" src="./script/room1.js"></script>
 <link href="./styles/room1.css" rel="stylesheet" type="text/css">
 <link href="./styles/roombtn.css" rel="stylesheet" type="text/css">
 </head>
@@ -13,21 +14,17 @@
 		<div id="invenbtn">
 			<input id="check-btn" type="checkbox" /> <label class="btns"
 				for="check-btn">인벤토리</label>
-			<ul class="menubars">
-				<li>1</li>
-				<li>2</li>
-				<li>3</li>
-				<li>4</li>
-			</ul>
+			<ul class="menubars" id="evidenceList"></ul>
+			<ul class="inventory" id="inventoryList"></ul>
 		</div>
-		<div class="bed">
-			<button class="btn">침대</button>
+		<div id="bed">
+			<a type="button" id="bedbtn"></a>
 		</div>
-		<div class="table">
-			<button class="btn">책상</button>
+		<div id="table">
+			<a type="button" id="tablebtn"></a>
 		</div>
-		<div class="photo">
-			<button class="btn">액자</button>
+		<div id="photo">
+			<a type="button" id="photobtn"></a>
 		</div>
 		<div class="corridor">
 			<button class="corridor_btn" onClick="location.href='corridor.jsp'">복도</button>

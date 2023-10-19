@@ -20,7 +20,7 @@ document.addEventListener("DOMContentLoaded", function() {
 		if (storyIndex < story.length) {
 			let paragraph = document.createElement("p");
 			paragraph.textContent = story[storyIndex];
-			if (storyIndex > 0) {
+			if (storyIndex > 0 && outputElement.firstElementChild) {
 				outputElement.removeChild(outputElement.firstElementChild);
 			}
 			outputElement.appendChild(paragraph);
@@ -30,24 +30,6 @@ document.addEventListener("DOMContentLoaded", function() {
 			clearInterval(interval);
 		}
 	}
-
-
-	function nextStory() {
-		if (storyIndex < story.length) {
-			displayedStory.push(story[storyIndex]);
-			storyIndex++;
-			if (storyIndex < story.length) {
-				outputElement.innerHTML = '';
-				let paragraph = document.createElement("p");
-				paragraph.textContent = story[storyIndex];
-				outputElement.appendChild(paragraph);
-				paragraph.classList.add("animation-element");
-			}
-		}
-	}
-	var nextbtn = document.getElementById("nextbtn");
-	nextbtn.addEventListener("click", nextStory);
-	nextbtn.style.display = "none";
 
 	function previousStory() {
 		if (displayedStory.length > 0) {
@@ -59,7 +41,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
 			let previousContent = displayedStory.pop();
-			outputElement.innerHTML = ''; //
+			outputElement.innerHTML = '';
 			if (previousContent) {
 				let paragraph = document.createElement("p");
 				paragraph.textContent = previousContent;
@@ -67,6 +49,47 @@ document.addEventListener("DOMContentLoaded", function() {
 			}
 		}
 	}
+	/*function previousStory() {
+		if (displayedStory.length > 0) {
+			storyIndex--;
+			storyIndex = Math.max(storyIndex, 0);
+
+			
+			displayedStory.pop();
+
+			
+			let previousContent = displayedStory.pop(); // 현재 내용과 함께 이전 내용을 가져옴
+			outputElement.innerHTML = ''; // 내용 초기화
+			if (previousContent) {
+				let paragraph = document.createElement("p");
+				paragraph.textContent = previousContent;
+				outputElement.appendChild(paragraph);
+			}
+		}
+	}*/
+	function nextStory() {
+		if (storyIndex < story.length) {
+			displayedStory.push(story[storyIndex]);
+			storyIndex++;
+			if (storyIndex < story.length) {
+				outputElement.innerHTML = '';
+				let paragraph = document.createElement("p");
+				paragraph.textContent = story[storyIndex];
+				outputElement.appendChild(paragraph);
+			}
+		}
+	}
+	/*function nextStory() {
+		if (storyIndex < story.length) {
+			displayStory();
+		displayedStory.push(story[storyIndex - 1]);
+		}
+	}*/
+
+	let nextbtn = document.getElementById("nextbtn");
+	nextbtn.addEventListener("click", nextStory);
+	nextbtn.style.display = "none";
+
 	let prevbtn = document.getElementById("prevbtn");
 	prevbtn.addEventListener("click", previousStory);
 	prevbtn.style.display = "none";
@@ -74,13 +97,12 @@ document.addEventListener("DOMContentLoaded", function() {
 	function startStory() {
 		storyIndex = 0;
 		outputElement.innerHTML = '';
+		displayedStory = [];
 		displayStory();
 		nextbtn.style.display = "inline";
 		prevbtn.style.display = "inline";
-		outputElement.style.backgroundColor = "#ffffffc9";
 	}
 
-	var storybtn = document.getElementById("storybtn");
+	let storybtn = document.getElementById("storybtn");
 	storybtn.addEventListener("click", startStory);
-
 });

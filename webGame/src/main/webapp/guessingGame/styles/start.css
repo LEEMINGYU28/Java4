@@ -4,6 +4,35 @@ body {
 	margin: 0;
 }
 
+#nextbtn::after {
+	position: absolute;
+	left: 21px;
+	top: 21px;
+	content: '';
+	width: 30px;
+	height: 30px;
+	border-top: 5px solid #000;
+	border-right: 5px solid #000;
+	transform: rotate(45deg);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	cursor: pointer;
+}
+
+#prevbtn::after {
+	position: absolute;
+	left: 35px;
+	top: 20px;
+	content: '';
+	width: 30px;
+	height: 30px;
+	border-top: 5px solid #000;
+	border-right: 5px solid #000;
+	transform: rotate(225deg);
+	cursor: pointer;
+}
+
 #output {
 	position: absolute;
 	width: 260%;
@@ -13,12 +42,21 @@ body {
 	align-items: center;
 	justify-content: center;
 }
+
 #nextbtn {
 	position: absolute;
-	top: 5%;
-	left: 30%;
+	top: -8%;
+	right: -88%;
 	width: 28%;
-	height: 7%;
+	height: 13%;
+}
+
+#prevbtn {
+	position: absolute;
+	width: 28%;
+	height: 13%;
+	top: -8%;
+	left: -85%;
 }
 
 .root {
@@ -80,4 +118,19 @@ button {
 	background: #21825B;
 	box-shadow: 0px 5px 0px 0px #007144;
 	font-size: 26px;
+}
+
+@keyframes scrollUp {
+	from {
+		transform: translateY(0);
+		opacity: 0;
+	}
+	to {
+		transform: translateY(0);
+
+		opacity: 1;
+	}
+}
+.animation-element {
+	animation: scrollUp 1s forwards;
 }
