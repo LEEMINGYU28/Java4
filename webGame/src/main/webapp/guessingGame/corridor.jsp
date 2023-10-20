@@ -4,9 +4,10 @@
 
 <!DOCTYPE html>
 <html>
-<link href="./styles/corridor.css" rel="stylesheet" type="text/css">
 <head>
 <meta charset="UTF-8">
+<script type="text/javascript" src="./script/corridor.js"></script>
+<link href="./styles/corridor.css" rel="stylesheet" type="text/css">
 <title>복도</title>
 </head>
 <body>
@@ -14,12 +15,8 @@
 		<div id="invenbtn">
 			<input id="check-btn" type="checkbox" /> <label class="btns"
 				for="check-btn">인벤토리</label>
-			<ul class="menubars">
-				<li>1</li>
-				<li>2</li>
-				<li>3</li>
-				<li>4</li>
-			</ul>
+				<ul class="menubars" id="evidenceList"></ul>
+				<ul class="inventory" id="inventoryList"></ul>
 		</div>
 		<div class='room2'>
 			<button class='room2_btn' onClick="location.href='room2.jsp'">2번방</button>

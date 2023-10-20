@@ -14,12 +14,11 @@
 <body>
 	<div class="root">
 		<div class="start">
-		<div id="output" class="slide-up" ></div>
-		<div class="buttons">
-			<button id="storybtn">스토리</button>
-			<a type="button" id="nextbtn"></a>
-			<a type="button" id="prevbtn"></a>
-		</div>	
+			<div id="output" class="slide-up"></div>
+			<div class="buttons">
+				<button id="storybtn">스토리</button>
+				<a type="button" id="nextbtn"></a> <a type="button" id="prevbtn"></a>
+			</div>
 			<button class="game" onClick="location.href='lobby.jsp'">게임시작</button>
 		</div>
 	</div>
