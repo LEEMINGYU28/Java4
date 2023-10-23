@@ -5,6 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>1번방</title>
+<script type="text/javascript" src="./script/corridor.js"></script>
 <script type="text/javascript" src="./script/room1.js"></script>
 <link href="./styles/room1.css" rel="stylesheet" type="text/css">
 <link href="./styles/roombtn.css" rel="stylesheet" type="text/css">
