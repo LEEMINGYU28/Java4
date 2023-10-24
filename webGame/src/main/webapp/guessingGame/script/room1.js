@@ -47,11 +47,14 @@ function randomEvidence(selectedLocationIndex) {
 	if (selectedLocationIndex === evidenceLocation) {
 		const randomEvidence = evidences.pop();
 		alert("단서를 발견했다: " + randomEvidence);
+		
+		saveInventory(randomEvidence);
 		addEvidenceList(randomEvidence);
 		evidenceFound = true;
 
 		localStorage.setItem('evidenceLocation', evidenceLocation);
 		localStorage.setItem('evidenceFound', evidenceFound);
+
 	} else {
 		alert("아무것도 안보인다.");
 	}

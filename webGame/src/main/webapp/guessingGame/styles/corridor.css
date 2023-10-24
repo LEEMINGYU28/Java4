@@ -31,21 +31,6 @@ body {
 	top: 53%;
 }
 
-.btns {
-	background-color: #0a0a23;
-	color: #fff;
-	border: none;
-	border-radius: 10px;
-	position: absolute;
-/*	left: 92%;
-	top: 33%;*/
-	width: 139px;
-	height: 50px;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	cursor: pointer;
-}
 
 .room2 {
 	position: absolute;
@@ -125,12 +110,50 @@ button {
 	transform: scale(1.2);
 	cursor: pointer;
 }
+
+.btns {
+	background-color: #0a0a23;
+	color: #fff;
+	border: none;
+	border-radius: 10px;
+	position: absolute;
+	top: 22px;
+	width: 141px;
+	height: 50px;
+	left: 28%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	cursor: pointer;
+}
+
+
+#evidenceList {
+	background-color: #ffffffad;
+	display: none;
+	padding-left: 25px;
+	border: 1px solid black;
+	width: 115px;
+	position: absolute;
+	top: 24%;
+	left: 28%;
+}
+
+#inventoryList {
+	background-color: #ffffffad;
+	display: none;
+	border: 1px solid black;
+	width: 98px;
+	position: absolute;
+	top: 53%;
+}
+
 #invenbtn {
-	width: 11%;
-	height: 10%;
+	width: 15%;
+	height: 24%;
 	position: absolute;
 	right: 0%;
-	top: 31%;
+	top: 33%;
 	display: flex;
 	align-items: center;
 	justify-content: center;

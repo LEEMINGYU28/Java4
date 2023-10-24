@@ -6,6 +6,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<script type="text/javascript" src="./script/inventory.js"></script>
 <script type="text/javascript" src="./script/corridor.js"></script>
 <link href="./styles/corridor.css" rel="stylesheet" type="text/css">
 <title>복도</title>
