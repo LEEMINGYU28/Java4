@@ -6,7 +6,7 @@
 <meta charset="UTF-8">
 <title>2번방</title>
 <script type="text/javascript" src="./script/inventory.js"></script>
-<script type="text/javascript" src="./script/room1.js"></script>
+<script type="text/javascript" src="./script/room2.js"></script>
 <link href="./styles/room2.css" rel="stylesheet" type="text/css">
 <link href="./styles/roombtn.css" rel="stylesheet" type="text/css">
 </head>
