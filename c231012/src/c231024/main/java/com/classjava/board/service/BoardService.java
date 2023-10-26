@@ -7,7 +7,7 @@ import c231024.main.java.com.classjava.user.domain.User;
 
 public interface BoardService {
 
-	public void add(Board board, int userId);
+	public void add(Board board,int id);
 
 	public Board get(int id);
 

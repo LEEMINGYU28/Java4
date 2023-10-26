@@ -7,7 +7,7 @@ import java.lang.reflect.Proxy;
 
 import org.junit.Test;
 
-import c231025.main.java.com.classjava.proxyEx.SimpleStirngImpl;
+import c231025.main.java.com.classjava.proxyEx.SimpleStringImpl;
 import c231025.main.java.com.classjava.proxyEx.SimpleString;
 import c231025.main.java.com.classjava.proxyEx.ToUpperCaseHandler;
 
@@ -30,7 +30,7 @@ public class ReflectionTest {
 		SimpleString ssProxied = (SimpleString) Proxy.newProxyInstance(
 				getClass().getClassLoader(),
 				new Class[] { SimpleString.class },
-				new ToUpperCaseHandler(new SimpleStirngImpl()));
+				new ToUpperCaseHandler(new SimpleStringImpl()));
 		
 		assertThat(ssProxied.hello("한상윤"), is("HELLO한상윤"));
 		assertThat(ssProxied.intro("한상윤"), is("MY NAME IS 한상윤"));

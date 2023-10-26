@@ -2,6 +2,7 @@ package c231024.main.java.com.classjava.board.service;
 
 import java.util.List;
 
+
 import c231024.main.java.com.classjava.board.dao.BoardDAO;
 import c231024.main.java.com.classjava.board.domain.Board;
 import c231024.main.java.com.classjava.user.dao.UserDAO;
@@ -26,9 +27,10 @@ public class BoardServiceImpl implements BoardService {
 		this.userService = userService;
 	}
 
-	public void add(Board board,int userId) {
-		if(userService.isLogIn(userId)) boardDAO.add(board);
-		else new RuntimeException("로그인 해주세요.");
+	public void add(Board board,int id) {
+//		if(userService.isLogIn(userId))
+		boardDAO.add(board);
+//		else new RuntimeException("로그인 해주세요.");
 		}
 
 	public Board get(int id) {
@@ -115,8 +117,8 @@ public class BoardServiceImpl implements BoardService {
 		List<Board> list = getAll();
 
 		for (int i = 0; i < list.size(); i++) {
-//			if (i == 2)
-//				user = new User("김남균", "knk", "1234");
+			if (i == 2)
+				user = new User("김남균", "knk", "1234");
 
 			Board board = list.get(i);
 			list.get(i).setContent("삭제된 컨텐츠");
