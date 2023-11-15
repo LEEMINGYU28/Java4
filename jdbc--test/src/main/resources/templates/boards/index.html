@@ -1,0 +1,61 @@
+<html lang="ko">
+
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>게시판</title>
+	<link rel="stylesheet" href="/boards/index.css" />
+	<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+</head>
+
+<body>
+	<h1>게시판 목록</h1>
+	<ul id="list">
+		<li class="items">
+			<div class="items-inner-box">
+				<div class="title">Test</div>
+				<div class="user">user : 테스트중</div>
+			</div>
+		</li>
+	</ul>
+	<li class="items none">
+		<div class="items-inner-box">
+			<a class="title"  style="cursor: pointer;" onclick="openContent(this); return false;"></a>
+			<a class="content" style="display: none;"></a>
+			<div class="user">user : <span class="user-name"></span></div>
+		</div>
+	</li>
+	<script>
+			function openContent(element) {
+            var tempElem = element.closest('.items');
+            var contentElem = tempElem.querySelector('.content');
+            contentElem.style.display = "block";
+        }
+		async function getList() {
+			const list = (await axios.post("/board", {})).data;
+			console.log(list);
+			const listElem = document.getElementById("list");
+			const itemElemTemplate = document.getElementsByClassName("none")[0];
+			list.forEach((item) => {
+				const tempElem = itemElemTemplate.cloneNode(true);
+				console.log(tempElem);
+				tempElem.classList.remove("none");
+				// tempElem.getElementsByClassName("title")[0].innerHTML = item.title;
+				const titleElem = tempElem.getElementsByClassName("title")[0];
+				titleElem.innerHTML = item.title;
+				titleElem.addEventListener("click", () => { openContent(titleElem); return false; });
+				tempElem.getElementsByClassName("content")[0].innerHTML = item.content;
+				tempElem.getElementsByClassName("user-name")[0].innerHTML = item.user;
+				listElem.append(tempElem);
+
+			});
+		}
+		
+		getList();
+
+		
+		
+	</script>
+</body>
+
+</html>
