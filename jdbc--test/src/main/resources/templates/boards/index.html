@@ -10,27 +10,28 @@
 
 <body>
 	<h1>게시판 목록</h1>
+	<a href="/board/add">게시글 작성</a>
 	<ul id="list">
 		<li class="items">
-			<div class="items-inner-box">
+			<a class="items-inner-box" href="#">
 				<div class="title">Test</div>
 				<div class="user">user : 테스트중</div>
-			</div>
+			</a>
 		</li>
 	</ul>
 	<li class="items none">
-		<div class="items-inner-box">
-			<a class="title"  style="cursor: pointer;" onclick="openContent(this); return false;"></a>
+		<div class="items-inner-box" href="">
+			<a class="title" style="cursor: pointer;" onclick="openContent(this); return false;"></a>
 			<a class="content" style="display: none;"></a>
 			<div class="user">user : <span class="user-name"></span></div>
 		</div>
 	</li>
 	<script>
-			function openContent(element) {
-            var tempElem = element.closest('.items');
-            var contentElem = tempElem.querySelector('.content');
-            contentElem.style.display = "block";
-        }
+		function openContent(element) {
+			var tempElem = element.closest('.items');
+			var contentElem = tempElem.querySelector('.content');
+			contentElem.style.display = "block";
+		}
 		async function getList() {
 			const list = (await axios.post("/board", {})).data;
 			console.log(list);
@@ -44,17 +45,18 @@
 				const titleElem = tempElem.getElementsByClassName("title")[0];
 				titleElem.innerHTML = item.title;
 				titleElem.addEventListener("click", () => { openContent(titleElem); return false; });
+				tempElem.getElementsByClassName("items-inner-box")[0].href = "/board/item?id=" + item.id;
 				tempElem.getElementsByClassName("content")[0].innerHTML = item.content;
 				tempElem.getElementsByClassName("user-name")[0].innerHTML = item.user;
 				listElem.append(tempElem);
 
 			});
 		}
-		
+
 		getList();
 
-		
-		
+
+
 	</script>
 </body>
 

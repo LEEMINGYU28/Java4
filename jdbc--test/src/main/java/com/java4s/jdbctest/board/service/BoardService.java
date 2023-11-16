@@ -26,5 +26,7 @@ public class BoardService {
 		List<Board> list = boardDAO.getAll();
 		return list;
 	}
-
+	public void updateBoard(Board board) {
+		boardDAO.update(board);
+	}
 }

@@ -21,18 +21,32 @@
 				<textarea name="content" id="content" cols="30" rows="10"></textarea>
 			</div>
 			<div>
-				<button>업로드</button>				
+				<button>업로드</button>
+				<button id="cancel">뒤로가기</button>
 			</div>
 		</fieldset>
 	</form>
-	<button id="cancel" onclick="goToBoard()">뒤로가기</button>
+
 	<script>
-		function goToBoard() {
-			window.location.href = "/board";
+		document.getElementById("add-form").onsubmit = (e) => {
+				if (e.target.user.value == "admin") e.preventDefault();
+				if (e.target.user.value.length < 3) e.preventDefault();
+				if (
+					!(
+						e.target.user.value &&
+						e.target.title.value &&
+						e.target.content.value
+					)
+				) {
+					e.preventDefault();
+				}
+			};
+		document.getElementById("cancel").onclick = (e) => {
+			e.preventDefault();
+			// location.href = "/board";
+			history.back();
 		}
-		</script>
+	</script>
 </body>
+
 </html>
-
-
-

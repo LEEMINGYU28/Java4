@@ -37,4 +37,10 @@ public class BoardDAO {
 		return jdbcTemplate.query("select * from spring_boards order by \"id\"", mapper);
 
 	}
+	public void update(Board board) {
+		jdbcTemplate.update("update spring_boards set \"title\"=?,\"content\"=? where \"id\"=?",
+				board.getTitle(),
+				board.getContent(),
+				board.getId());
+	}
 }
