@@ -76,15 +76,15 @@ public class BoardController {
 		return "boards/thyme/edit";
 	}
 
-	@PostMapping("/board/edit")
+	@PostMapping("/board/edit?{id}=?")
 	public String edit(@PathVariable("id") int id, @RequestParam Map<String, String> data) {
+		System.out.println("메서드 호툴");
 		Board board = new Board(
-				id,
 				data.get("user"),
 				data.get("title"),
 				data.get("content"));
 		boardService.updateBoard(board);
-		return "redirect:/board";
+		return "redirect:/board/thyme";
 	}
 
 	@PostMapping("/board/item")

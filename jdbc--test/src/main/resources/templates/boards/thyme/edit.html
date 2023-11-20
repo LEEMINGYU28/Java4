@@ -1,28 +1,53 @@
-<html lang="ko" mxlns:th="http://www.thymeleaf.org"></html>
+<html lang="ko" mxlns:th="http://www.thymeleaf.org">
+
+</html>
 <!DOCTYPE html>
 <html>
+
 <head>
-<meta charset="UTF-8">
-<title>수정</title>
+	<meta charset="UTF-8">
+	<title>수정</title>
 </head>
+
 <body>
-    <form action="/boards/edit" method="post">
+	<form action="/board/edit" method="post">
 		<fieldset>
 			<legend>게시글 수정</legend>
+			<a
+			class="items-inner-box"
+			th:object="${item}"
+			th:href="@{/board/item (id=*{id})}" ></a>
 			<div>
-				<label for="user"><input type="text" id="user" name="user"  value="[(${item.user})]" /></label>
+				<label for="user"><input type="text" id="user" name="user" value="[(${item.user})]" />[(${item.user})]</label>
 			</div>
 			<div>
-				<label for="title"><input type="text" id="title" name="title" value="[(${item.title})]" /></label>
+				<label for="title"><input type="text" id="title" name="title" value="*{title}" /></label>
 			</div>
 			<div>
-				<textarea name="content" id="content" cols="30" rows="10">[(${item.content})]</textarea>
+				<textarea name="content" id="content" cols="30" rows="10" value="*{item.content}"></textarea>
 			</div>
 			<div>
 				<button type="submit">수정</button>
 				<button id="cancel">뒤로가기</button>
 			</div>
+			</a>
 		</fieldset>
 	</form>
+	<script>
+		async function getEdit() {
+		  console.log(location.search.split("=")[1]);
+		  const board = (await axios.post("/board/edit", {
+			 id: location.search.split("=")[1],
+			 })
+			 ).data;
+		  console.log(board);
+		  document.getElementById("title").innerHTML = board.title;
+		  document.getElementById("user").innerHTML = board.user;
+		  document.getElementById("content").innerHTML = board.content;
+		  
+	   }
+	   getEdit();
+	 </script>
 </body>
+
 </html>

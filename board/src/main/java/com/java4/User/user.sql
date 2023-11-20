@@ -9,5 +9,5 @@ create table users(
   "git_address" VARCHAR2(100),
   "gender" NUMBER(1),
   "birth" DATE,
-  "created_at" TIMESTAMP default sysdate
+  "created_at" TIMESTAMP default current_timestamp
 );
