@@ -4,9 +4,15 @@
     <link rel="stylesheet" href="/styles/header.css" />
 </head>
 <body>
-    <div th:fragment="headerFragment" id="header">
+    <div
+    th:fragment="headerFragment"
+    id="header"
+    class="d-flex justify-content-between align-items-center px-2"> <!-- container 넣어주면 끝에 맞춤-->
+        <a href="/"> <button class="btn btn-secondary btn-sm">home</button></a>
         <h1 th:text="${title}"></h1>
-
+        <div th:replace="/user/loginBox :: loginFragment">
+            <a href="/user/regist"><button class="btn btn-secondary btn-sm">회원가입</button></a>
+        </div>
     </div>
 </body>
 

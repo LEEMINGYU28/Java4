@@ -1,19 +1,20 @@
 package com.java4.User.domain;
 
+import java.sql.Timestamp;
 import java.util.Date;
 
-import org.springframework.stereotype.Controller;
-
+import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 
 
 @Data
 @AllArgsConstructor
+@NoArgsConstructor
 @RequiredArgsConstructor
-@Controller
 public class User {
 
 	private int id;
@@ -26,20 +27,16 @@ public class User {
 	private String name;
 	@NonNull
 	private String phone;
-	@NonNull
 	private String address;
 	@NonNull
 	private String email;
-	@NonNull
 	private String gitAddress;
 	
-	private boolean gender;
-	private Date createdAt;
+	private int gender;
+	
 	private Date birth;
+	private Timestamp createdAt;
 	
 	
-	public User() {
-		
-	}
 		
 }

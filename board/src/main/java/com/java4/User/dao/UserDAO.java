@@ -20,20 +20,36 @@ public class UserDAO {
 		@Override
 		public User mapRow(ResultSet rs, int rowNum) throws SQLException {
 			// TODO Auto-generated method stub
-			return new User(rs.getInt("id"), rs.getString("user_id"), rs.getString("password"), rs.getString("name"),
-					rs.getString("phone"), rs.getString("address"), rs.getString("email"), rs.getString("git_address"),
-					rs.getInt("gender") == 0, rs.getDate("birth"), rs.getTimestamp("created_at"));
+			return new User(
+					rs.getInt("id"),
+					rs.getString("user_id"),
+					rs.getString("password"),
+					rs.getString("name"),
+					rs.getString("phone"),
+					rs.getString("address"),
+					rs.getString("email"),
+					rs.getString("git_address"),
+					rs.getInt("gender"),
+					rs.getDate("birth"),
+					rs.getTimestamp("created_at"));
 		}
 	};
 
 	public void add(User user) {
 		jdbcTemplate.update(
-				"insert into users (\"user_id\", \"password\", \"name\",\"phone\", \"address\",\"email\",\"git_address\") values (?, ?, ?, ?, ?, ?,?)",
-				user.getUserId(), user.getPassword(), user.getName(), user.getPhone(), user.getAddress(),
-				user.getEmail(), user.getGitAddress());
+				"insert into users (\"user_id\", \"password\", \"name\",\"phone\", \"address\",\"email\",\"git_address\",\"gender\",\"birth\") values (?, ?, ?, ?, ?, ?, ?, ?, ?)",
+				user.getUserId(),
+				user.getPassword(),
+				user.getName(),
+				user.getPhone(),
+				user.getAddress(),
+				user.getEmail(),
+				user.getGitAddress(),
+				user.getGender(),
+				user.getBirth());
 	}
 
 	public User get(String userId) {
-		return jdbcTemplate.queryForObject("select * from users where \"user_id\"=?", new Object[] { userId }, mapper);
+		return jdbcTemplate.queryForObject("select * from users where \"user_id\"=?", mapper,userId);
 	}
 }
