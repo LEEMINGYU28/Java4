@@ -74,6 +74,7 @@ public class UserController {
 		
 		if(tempUser != null) {
 		session.setAttribute("userName", tempUser.getName());
+		session.setAttribute("userId", tempUser.getUserId());
 		}
 		return "redirect:/";
 	}
@@ -103,7 +104,7 @@ public class UserController {
 	@PostMapping("/logins")
 	public String login(@RequestParam Map<String, String> data, HttpSession session, Model model) {
 		User user = new User();
-		user.setUserId(data.get("userId"));
+		user.setUserId(data.get("userIds"));
 		user.setPassword(data.get("password"));
 
 		user = userService.logins(user);

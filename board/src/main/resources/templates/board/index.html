@@ -17,6 +17,7 @@
                     id="floatingTextarea"></textarea>
                 <label for="floatingTextarea">내용</label>
             </div>
+            <!-- <input type="hidden" name="userIds" value="${userId}"> -->
             <button class="btn btn-primary">글 올리기</button>
         </form>
         <div>
@@ -38,9 +39,9 @@
                 </thead>
                 <tbody>
                   <tr th:each="item:${list}" th:object="${item}">
-                    <th scope="row" th:text="*{id}">1</th>
+                    <th scope="row" th:text="*{id}"></th>
                     <td th:text="*{title}"></td>
-                    <td th:text="*{userId}"></td>
+                    <td th:text="${item.user != null ? item.user.name : ''}"></td>
                     <td th:text="*{createdAt}"></td>
                   </tr>
                   <!-- <tr>

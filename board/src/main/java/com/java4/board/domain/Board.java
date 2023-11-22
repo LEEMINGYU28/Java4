@@ -4,6 +4,8 @@ import java.sql.Timestamp;
 
 import org.springframework.stereotype.Controller;
 
+import com.java4.User.domain.User;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NonNull;
@@ -17,6 +19,7 @@ import lombok.RequiredArgsConstructor;
 public class Board {
 	
 	private int id;
+	private User user;
 	@NonNull
 	private String title;
 	@NonNull
@@ -32,5 +35,10 @@ public class Board {
 	
 	public Board() {
 		
+	}
+	public Board(User user, String title, String content) {
+		this.user = user;
+		this.title = title;
+		this.content = content;
 	}
 }

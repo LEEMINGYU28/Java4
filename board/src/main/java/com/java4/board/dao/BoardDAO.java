@@ -10,6 +10,7 @@ import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Controller;
 import org.springframework.stereotype.Repository;
 
+import com.java4.User.domain.User;
 import com.java4.board.domain.Board;
 
 
@@ -25,18 +26,20 @@ public class BoardDAO {
 			// TODO Auto-generated method stub
 			return new Board(
 					rs.getInt("id"),
+					 null,
 					rs.getString("title"),
 					rs.getString("content"),
 					rs.getInt("views"), 0, 0,
 					rs.getTimestamp("created_at"),
 					rs.getInt("is_withdrew") == 1,
-					rs.getInt("user_id"));
+					rs.getInt("user_id")
+					);
 		}
 	};
 
 	public void add(Board board) {
-		jdbcTemplate.update("insert into boards (\"title\", \"content\", \"is_withdrew\",\"user_id\") values (?, ?, ?, ?)",
-				board.getTitle(), board.getContent(),0, 1);
+		jdbcTemplate.update("insert into boards (\"title\", \"content\", \"user_id\") values (?, ?, ?)",
+				board.getTitle(), board.getContent(),board.getUser().getId());
 	}
 
 //	public Board get(int id) {
@@ -47,4 +50,6 @@ public class BoardDAO {
 		return jdbcTemplate.query("select * from boards order by \"id\"", mapper);
 
 	}
+
+
 }

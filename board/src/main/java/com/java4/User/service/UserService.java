@@ -51,7 +51,10 @@ public class UserService {
 		User tempUser = userDao.get(user.getUserId());
 		if(tempUser != null && tempUser.getPassword().equals(cryptoPassword(user.getPassword()))) {	
 			return tempUser;
-		}
+		} else
 		return null;
+	}
+	public User getNames() {
+		return userDao.getName();
 	}
 }
