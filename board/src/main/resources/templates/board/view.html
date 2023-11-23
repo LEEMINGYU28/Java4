@@ -1,0 +1,22 @@
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>게시물</title>
+</head>
+
+<body>
+    <table>
+        <div th:fragment="boardViewFragment" class="board-view container">
+            <tbody>
+                <tr th:each="item:${list}" th:object="${item}">
+                    <td th:text="*{title}"></td>
+                    <td th:text="*{content}"></td>
+                    <td th:text="*{userName}"></td>
+        </div>
+        </tbody>
+        </tr>
+    </table>
+</body>
+
+</html>

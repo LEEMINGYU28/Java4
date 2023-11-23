@@ -19,7 +19,7 @@
     <div class="root">
         <div id="header" th:replace="~{/basic/header :: headerFragment}"></div>
         <div id="menu"></div>
-        <div id="content" th:if="${path !=null}" th:insert="~{${path} :: ${content}}"></div>
+        <div id="content" th:insert="~{${path} :: ${content}}"></div>
         <div id="modal" th:replace="~{/basic/modal :: modalFragment}"></div>
     </div>
 </body>

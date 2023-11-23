@@ -15,13 +15,18 @@ public class BoardService {
 
 	@Autowired
 	BoardDAO boardDao;
+	
 	@Autowired
 	UserDAO userDao;
 	
-	public void add(Board board,int userId) {
+	public void add(Board board) {
 		boardDao.add(board);
 	}
 	public List<Board> getAll(){
 		return boardDao.getAll();
+	}
+	public Board get(int id) {
+		Board board = boardDao.get(id);
+		return board;
 	}
 }

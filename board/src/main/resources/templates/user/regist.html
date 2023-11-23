@@ -1,7 +1,6 @@
 <html mxlns:th="http://www.thymeleaf.org">
 
 <head th:fragment="registFragmentHead">
-    <link rel="stylesheet" href="/styles/user/regist.css" />
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.10.0/css/bootstrap-datepicker.min.css" integrity="sha512-34s5cpvaNG3BknEWSuOncX28vz97bRI59UnVtEEpFX536A7BtZSJHsDyFoCl8S7Dt2TPzcrCEoHBGeM4SUBDBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.10.0/css/bootstrap-datepicker.standalone.min.css" integrity="sha512-D5/oUZrMTZE/y4ldsD6UOeuPR4lwjLnfNMWkjC0pffPTCVlqzcHTNvkn3dhL7C0gYifHQJAIrRTASbMvLmpEug==" crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -143,8 +142,11 @@
                 <button class="btn btn-primary btn-lg m-auto">sign in</button>
                 </div>
         </form>
+        <script src="/scripts/user/index.js"></script>
         <script src="/scripts/user/regist.js"></script>
         <script>
+        
+    
                 // 정규표현식에서 \는 뒤에 예약어가 붙는다고 생각하면된다
                 // new RegExp(,"ig")  앞에는 위에 식 뒤에는 플레그 자바쪽에서 다룸
 

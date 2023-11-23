@@ -4,7 +4,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
@@ -33,15 +32,13 @@ public class UserDAO {
 				user.getUserId(), user.getPassword(), user.getName(), user.getPhone(), user.getAddress(),
 				user.getEmail(), user.getGitAddress(), user.getGender(), user.getBirth());
 	}
-
-	public User get(int Id) {
-		return jdbcTemplate.queryForObject("select * from users where \"id\"=?", mapper, Id);
+	public User get(int id) {
+		return jdbcTemplate.queryForObject("select * from users where \"id\"=?", mapper, id);
 	}
+
 
 	public User get(String userId) {
-			return jdbcTemplate.queryForObject("SELECT * FROM users WHERE \"user_id\" = ?", mapper, userId);
+		return jdbcTemplate.queryForObject("select * from users where \"user_id\"=?", mapper, userId);
 	}
-	public User getName() {
-		return (User) jdbcTemplate.query("select * from users order by \"name\"=?", mapper);
-	}
+
 }

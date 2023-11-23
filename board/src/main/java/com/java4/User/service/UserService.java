@@ -49,12 +49,11 @@ public class UserService {
 	}
 	public User login(User user) {
 		User tempUser = userDao.get(user.getUserId());
-		if(tempUser != null && tempUser.getPassword().equals(cryptoPassword(user.getPassword()))) {	
+
+		if (tempUser != null && tempUser.getPassword().equals(cryptoPassword(user.getPassword()))) {
 			return tempUser;
-		} else
+		}
 		return null;
 	}
-	public User getNames() {
-		return userDao.getName();
-	}
+
 }

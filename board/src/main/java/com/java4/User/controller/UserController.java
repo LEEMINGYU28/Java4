@@ -65,19 +65,7 @@ public class UserController {
 	
 	}
 	
-	@PostMapping("login")
-	public String loginPost(@RequestParam Map<String,String> map,HttpSession session) {
-		User tempUser = new User();
-		tempUser.setUserId(map.get("userId"));
-		tempUser.setPassword(map.get("password"));
-		tempUser = userService.login(tempUser);
-		
-		if(tempUser != null) {
-		session.setAttribute("userName", tempUser.getName());
-		session.setAttribute("userId", tempUser.getUserId());
-		}
-		return "redirect:/";
-	}
+	
 	
 	@GetMapping("logout")
 	public String logout(HttpSession session) {
@@ -101,31 +89,25 @@ public class UserController {
 	}
 
 
-	@PostMapping("/logins")
-	public String login(@RequestParam Map<String, String> data, HttpSession session, Model model) {
-		User user = new User();
-		user.setUserId(data.get("userIds"));
-		user.setPassword(data.get("password"));
+	@PostMapping("/login")
+	public String login(@RequestParam Map<String, String> map, HttpSession session, Model model) {
+		User tempUser = new User();
+		tempUser.setUserId(map.get("userId"));
+		tempUser.setPassword(map.get("password"));
+		tempUser = userService.login(tempUser);
 
-		user = userService.logins(user);
-		if (user != null) {
-			session.setAttribute("userId", user.getUserId());
-			session.setAttribute("userName", user.getName());
-			System.out.println(user.getName());
-			System.out.println("로그인 성공");
-			return "redirect:/login";
-		} else {
-			model.addAttribute("error", "아이디 또는 비밀번호가 잘못되었습니다.");
-			System.out.println("로그인 실패");
-			return "redirect:/login";
+		if (tempUser != null) {
+			session.setAttribute("userName", tempUser.getName());
+			session.setAttribute("userId", tempUser.getId());
 		}
+		return "redirect:/";
 	}
 
 	@PostMapping("/logout")
 	public String userLogOutPost(@RequestParam Map<String, String> map, HttpSession session) {
 
-		session.setAttribute("userId", null);
-		session.setAttribute("userName", null);
+		session.removeAttribute("userId");
+		session.removeAttribute("userName");
 		System.out.println("로그아웃 성공");
 		return "redirect:/login";
 	}
