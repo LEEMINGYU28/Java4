@@ -45,8 +45,8 @@ public class UserController {
 			if(map.get("adress") != null) {
 				tempUser.setAddress(map.get("adress"));
 			}
-			if(map.get("gitAddress") != null) {
-				tempUser.setGitAddress(map.get("gitAddress"));
+			if (map.get("git-address") != "") {
+				tempUser.setGitAddress(map.get("git-address"));
 			}
 			if(map.get("gender") != null) {
 				tempUser.setGender(Integer.parseInt(map.get("gender")));

@@ -29,6 +29,7 @@ public class Board {
 	@NonNull
 	private int userId;
 	private String userName;
+	private String userGitAddress;
 	
 	public Board() {
 		

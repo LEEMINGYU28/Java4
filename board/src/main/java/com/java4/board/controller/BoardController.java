@@ -20,14 +20,17 @@ public class BoardController {
 	
 		@Autowired
 		BoardService boardService;
+		int count = 5;
 		
 		@GetMapping("/")
-		public String boardMain(Model model) {
-			model.addAttribute("title","게시판");
-			model.addAttribute("path","/board/index");
-			model.addAttribute("content","boardFragment");
-			model.addAttribute("contentHead","boardFragmentHead");
-			model.addAttribute("list",boardService.getAll());
+		public String boardMainPage(Model model, @RequestParam Map<String, String> data) {
+			int page = data.get("page") != null ? Integer.parseInt(data.get("page")) : 1;
+			model.addAttribute("title", "게시판");
+			model.addAttribute("path", "/board/index");
+			model.addAttribute("content", "boardFragment");
+			model.addAttribute("contentHead", "boardFragmentHead");
+			model.addAttribute("list", boardService.getAll(page, count));
+			model.addAttribute("pageCount", boardService.getPageCount(count));
 			return "/basic/layout";
 		}
 		
@@ -40,18 +43,31 @@ public class BoardController {
 			return "redirect:/";
 		}
 		
-		@GetMapping("/{id}")
-		public String view(Model model,@PathVariable("id")Integer id) {
-			System.out.println("요청");
-			System.out.println(id);
-			 try {
-			        Board board = boardService.get(id);
-			        System.out.println(board);
-			        model.addAttribute("list",boardService.getAll());
-			    } catch (Exception e) {
-			        e.printStackTrace();
-			    }return "/board/view";
+		@GetMapping("/board/{boardId}")
+		public String itemPage(Model model,@PathVariable("boardId") int boardId) {
+			Board board = boardService.get(boardId);
+			
+			model.addAttribute("title", board.getTitle());
+			model.addAttribute("path", "/board/item");
+			model.addAttribute("content", "boardItemFragment");
+			model.addAttribute("contentHead", "boardItemFragmentHead");
+			board.setContent(board.getContent().replace("\n","<br />"));
+			model.addAttribute("board", board);
+			return "/basic/layout";
 		}
+		
+//		@GetMapping("/{id}")
+//		public String view(Model model,@PathVariable("id")Integer id) {
+//			System.out.println("요청");
+//			System.out.println(id);
+//			 try {
+//			        Board board = boardService.get(id);
+//			        System.out.println(board);
+//			        model.addAttribute("list",boardService.getAll());
+//			    } catch (Exception e) {
+//			        e.printStackTrace();
+//			    }return "/board/view";
+//		}
 		
 //		@PostMapping("/add")
 //		public String add(@RequestParam Map<String,String> map, HttpSession session) {
