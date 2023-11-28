@@ -5,7 +5,8 @@
         <div th:if="${session.userName != null}">[[${session.userName}]],어서와
             <a href="/user/logout"><button class="btn btn-danger btn-sm">로그아웃</button></a>
         </div>
-        <form th:if="${session.userName == null}" action="/user/login" method="post" class="d-flex align-items-center mb-0"
+        <th:block th:if="${session.userName == null}">
+        <form action="/user/login" method="post" class="d-flex align-items-center mb-0"
         id="login-form">
 
             <div class="input-group">
@@ -29,8 +30,9 @@
                 </button>
             </a>
         </form>
-        <script src="/scripts/user/index.js"></script>
         <script src="/scripts/user/login.js"></script>
+        </th:block>
+        <script src="/scripts/user/index.js"></script>
     </div>
 </body>
 

@@ -2,18 +2,24 @@
 
 <head th:fragment="commentFragmentHead">
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <link rel="stylesheet" href="/styles/board/comment.css" />
 </head>
 <body>
     <div th:fragment="commentFragment">
-        <form action="/comments/add" method="post" th:if="${session.userId} != null">
+        <form 
+        action="/comments/add" 
+        method="post" 
+        th:if="${session.userId} != null"
+        id="board-comment"
+        >
             <input type="text" name="content" placeholder="Comment" />
             <input type="hidden" name="user_id" th:value="${session.userId}" />
             <input type="hidden" name="board_id" th:value="*{id}" />
             <button>댓글 추가</button>
         </form>
         <hr />
-        <ul id="comment-list" th:data-board-id="*{id}"></ul>
-        
+        <div id="comment-list" th:data-board-id="*{id}" class="comment-list"></div>
+        <button id="add-comment-btn">댓긇 더보기</button>
         
         <script src="/scripts/comment.js"></script>
     </div>

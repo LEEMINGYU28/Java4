@@ -32,6 +32,7 @@ public class CommentDAO {
 					rs.getInt("user_id"),
 					rs.getInt("board_id"),
 					rs.getInt("comment_id"),
+					rs.getString("name"),
 					null);
 		}
 	};
@@ -42,16 +43,23 @@ public class CommentDAO {
 	}
 	
 	public List<Comment> getParent(int boardId,int start){
-		return jdbcTemplate.query("select * from comments "
-				+ "where \"board_id\" = ? and \"comment_id\" is null "
-				+ "order by \"id\" desc "
+		return jdbcTemplate.query("select comments.*, users.\"name\" from comments "
+				+ "join users on comments.\"user_id\"=users.\"id\" "
+				+ "where comments. \"board_id\" = ? and comments.\"comment_id\" is null "
+				+ "order by comments.\"id\" desc "
 				+ "offset ? rows fetch first 5 rows only"
 				, mapper,boardId,start);
 	}
 	
 	public List<Comment> getChildren(int boardId,int commentId){
-		return jdbcTemplate.query("select * from comments "
-				+ "where \"board_id\" = ? and \"comment_id\" = ? "
-				+ "order by \"id\"",mapper,boardId,commentId);
+		return jdbcTemplate.query("select comments.*, users.\"name\" from comments "
+				+ "join users on comments.\"user_id\"=users.\"id\" "
+				+ "where comments.\"board_id\" = ? and \"comment_id\" = ? "
+				+ "order by comments.\"id\"",mapper,boardId,commentId);
+	}
+	public int getCountInBoard(int boardId) {
+		return jdbcTemplate.queryForObject("select count(*) from comments "
+				+ "where \"board_id\" = ? and \"comment_id\" is null",
+				Integer.class, boardId);
 	}
 }
