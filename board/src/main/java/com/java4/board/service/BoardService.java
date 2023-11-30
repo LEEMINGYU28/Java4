@@ -8,13 +8,14 @@ import org.springframework.stereotype.Service;
 import com.java4.User.dao.UserDAO;
 import com.java4.User.domain.User;
 import com.java4.board.dao.BoardDAO;
+import com.java4.board.dao.BoardDAOMysql;
 import com.java4.board.domain.Board;
 
 @Service
 public class BoardService {
 
 	@Autowired
-	BoardDAO boardDao;
+	BoardDAOMysql boardDao;
 	
 	public void add(Board board) {
 		boardDao.add(board);

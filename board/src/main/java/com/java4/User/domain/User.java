@@ -3,7 +3,6 @@ package com.java4.User.domain;
 import java.sql.Timestamp;
 import java.util.Date;
 
-import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;

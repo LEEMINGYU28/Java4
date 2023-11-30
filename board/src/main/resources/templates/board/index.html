@@ -4,6 +4,7 @@
   <link rel="stylesheet" href="/styles/board/index.css" />
 </head>
 <head th:replace="~{basic/userInfo :: userInfoFragmentHead}"></head>
+<head th:replace="~{board/addBoard :: addBoardFragmentHead}"></head>
 <body>
   <div th:fragment="boardFragment" class="board container">
     <th:block th:if="${session.userName != null}">

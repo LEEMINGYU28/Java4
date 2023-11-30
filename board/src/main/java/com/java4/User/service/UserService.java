@@ -7,6 +7,7 @@ import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Service;
 
 import com.java4.User.dao.UserDAO;
+import com.java4.User.dao.UserDAOMysql;
 import com.java4.User.domain.User;
 
 
@@ -14,7 +15,7 @@ import com.java4.User.domain.User;
 public class UserService {
 	
 	@Autowired
-	private UserDAO userDao;
+	private UserDAOMysql userDao;
 	
 	public void add(User user) {
 		user.setPassword(cryptoPassword(user.getPassword()));
